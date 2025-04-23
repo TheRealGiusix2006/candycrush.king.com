@@ -1,0 +1,57 @@
+<!--//TODO: align socialButtons on top of links. parrent uses the same space as child;put parameters-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><script id="socialButtonsTemplate" type="text/x-handlebars-template">
+
+    <style>
+        .socialSpan {
+            display: inline;
+            vertical-align: middle;
+            float: right;
+            margin-left: 8px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .socialImage {
+            border: 0;
+            height: 20px;
+        }
+    </style>
+
+    <div id="socialContainer" class="socialButtons fluidWidth" style="width:{{max gameWidth 520}}px; height: 30px;margin-left: auto;margin-right: auto;">
+        <span id="facebookLikeButton" class="socialSpan" style="float: left; margin-left: 0">
+            <iframe src="//www.facebook.com/plugins/like.php?href={{fanPageFullUrl}}&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35&amp;appId={{facebookAppId}}"
+                    scrolling="no" frameborder="0"
+                    style="border:none; overflow:hidden; height:20px;width: 60px"
+                    allowTransparency="true">
+            </iframe>
+        </span>
+
+        <span id="communityChannelButton" class="socialSpan" style="float: left">
+            <a target="_blank" href="{{socialButtonsParameters.communityChannelFullUrl}}">
+                <img class="socialImage" src="{{socialButtonsParameters.communityLogoUrl}}">
+            </a>
+        </span>
+
+        <!--instagram-->
+        <span id="instagramFollowButton" class="socialSpan">
+            <a target="_blank" href="{{socialButtonsParameters.instagramChannelFullUrl}}">
+                <img class="socialImage" src="{{socialButtonsParameters.instagramLogoUrl}}">
+            </a>
+        </span>
+
+        <!--twitter-->
+        <span id="twitterPostButton" class="socialSpan">
+                <iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-hashtag-button twitter-hashtag-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 174px; height: 20px;" title="X Post Button" src="https://platform.twitter.com/widgets/tweet_button.2f70fb173b9000da126c79afe2098f02.en.html#button_hashtag=CandyCrushSaga&amp;dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https://spiritaccount.net/candycrush/&amp;related=King_Games&amp;size=m&amp;text=%22Play%20Candy%20Crush%20with%20me!%20--%3E%20http%3A%2F%2Fto.king.com%2FzY9l%22&amp;time=1739107788208&amp;type=hashtag" data-hashtag="CandyCrushSaga" frameborder="0"></iframe>
+        </span>
+
+        <!--youtube-->
+        <span id="youtubeChannelButton" class="socialSpan">
+            <a target="_blank" href="{{socialButtonsParameters.youtubeChannelFullUrl}}">
+                <img class="socialImage" src="{{socialButtonsParameters.youtubeLogoUrl}}">
+            </a>
+        </span>
+        
+    
+
+</head><body></body></html><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9162e39c1c241262","version":"2025.1.0","r":1,"token":"b8df8b3d590a4e278837e71d6369b997","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>

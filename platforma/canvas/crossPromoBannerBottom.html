@@ -1,0 +1,87 @@
+<style type='text/css'>
+    #KingBlingCrosspromoBottomBanner {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .kbCrosspromoBottomBannerFindMyId {
+        text-decoration: none;
+        user-select: text !important;
+    }
+
+    .kbCrosspromoBottomBannerFindMyId .myCoreUserId {
+        display: none;
+        cursor: text;
+        font-weight: 700;
+    }
+
+    .kbCrosspromoBottomBannerFindMyId .separator {
+        color: #07B67F;
+    }
+</style>
+
+<div id="KingBlingCrosspromoBottomBanner"><img src="/images/banners/CCSS_bottom_banner_gameplay1_BCS-263_en.png" alt="Candy Crush Soda Saga" /></div>
+
+<script type='text/javascript'>
+    var GLOBAL_BANNER_UD = 'xpbud';
+
+    function KingBlingCrosspromoBottomBanner(options, bannerUD) {
+        var ud = bannerUD || {};
+
+        var init = function() {
+            addBlingUserMetrics();
+            addInstalledApps();
+            addFindMyId();
+            tearDown();
+        };
+        
+        var addBlingUserMetrics = function() {
+            $('#KingBlingCrosspromoBottomBanner').attr('blingUserMetrics', ud.blingUserMetrics ? JSON.stringify(ud.blingUserMetrics) : 'null');
+        };
+
+        var addInstalledApps = function() {
+            $('#KingBlingCrosspromoBottomBanner').attr('installedKingAppsIdLastVisitMap', ud.installedKingAppsIdLastVisitMap ? JSON.stringify(ud.installedKingAppsIdLastVisitMap) : '{}');
+        };
+
+        var addFindMyId = function() {
+            var e;
+            var findMyIdName = 'custopsh';
+            var findMyIdItem = $('#' + findMyIdName);
+            
+            if(!findMyIdItem.length) {
+                $("#links > a, #footer-right > a")
+                    .eq(0)
+                    .before('<a href="#" id="' + findMyIdName + '" class="kbCrosspromoBottomBannerFindMyId">' +
+                        '<span class="trigger">Find my ID</span>' +
+                        '<span class="myCoreUserId">ID: ' + ud.coreUserId + '</span>' +
+                    '</a> <span class="separator">|</span> ');
+                
+                findMyIdItem = $('#' + findMyIdName);
+                
+                $('.trigger', findMyIdItem).click(function(event) {
+                    event.preventDefault();
+                    findMyIdItem.removeAttr('href');
+                    
+                    $('.trigger', findMyIdItem).fadeOut(100, function() {
+                        $('.myCoreUserId', findMyIdItem).fadeIn(100);
+                    });
+                });
+            }
+            
+        };
+
+        var tearDown = function() {
+            if (window[GLOBAL_BANNER_UD]) {
+                delete window[GLOBAL_BANNER_UD];
+            }
+        };
+
+        init();
+    };
+
+    $(document).ready(function() {
+        new KingBlingCrosspromoBottomBanner({}, window[GLOBAL_BANNER_UD]);
+    });
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9162f0201b0cb482","version":"2025.1.0","r":1,"token":"b8df8b3d590a4e278837e71d6369b997","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>

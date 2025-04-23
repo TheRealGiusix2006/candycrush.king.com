@@ -1,0 +1,232 @@
+<script id="indexTemplate" type="text/x-handlebars-template">
+    <style>
+        .list-stores {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: table;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .list-stores div {
+            display: table-cell;
+        }
+        .list-stores a {
+            display: block;
+            height: 50px;
+            background: no-repeat center top;
+            background-size: 100% 100%;
+        }
+        a .text-browser {
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            display: block;
+            text-align: center;
+        }
+        a .text-vendor {
+            color: rgb(235, 235, 235);
+            font-family: Arial, Helvetica, sans-serif;
+            display: block;
+            font-size: 12px;
+            text-align: center;
+        }
+        .status-text {
+            margin: 20px auto;
+            width: 80%;
+            left: 5%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 22px;
+            text-align: center;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+        }
+        .unselectable {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+
+    <div id="background" style="margin: 0px; position: absolute; left: 0; right: 0;/* height: 100%;*/ background: url('{{pageBackgroundImageUrl}}') no-repeat center top;">
+        <div id="topBanner" style="position: relative;margin-left: auto; margin-right: auto; width: {{gameWidth}}px;"/>
+        <div id="gameContainer" class="fluidWidth" style="position: relative; margin: 0px auto 0px;  width: {{gameWidth}}px; height:{{gameHeight}}px; display: table;{{gameViewDecoration}};">
+            <div id="game"/>
+        </div>
+
+        <div id="incompatibilityContainer" class="fluidWidth" style="position: relative; margin: 0px auto 0px;
+                                                                     width: {{gameWidth}}px; height:{{gameHeight}}px; display: none;
+                                                                     background: url('{{gameContainerBackgroundImageUrl}}') center;
+                                                                     background-size: cover;
+                                                                     {{gameViewDecoration}}">
+            <!--################# Incompatible mobile device-->
+            {{#ifEquals browserCompatibilityStatus 'NOT_OK_IS_MOBILE_DEVICE'}}
+            <div id="view-mobile" class="view-inner" style="display:block;">
+                <div class="image-error" style="margin: 10% auto auto;display: block;text-align: center;object-fit: contain;">
+                    <img src="{{ gameSpecificBrowserIncompatibleViewParams.sadCharacterImageUrl }}"/>
+                </div>
+
+
+                {{#if browserIncompatibleViewParams.textDownloadFromGoogle}}
+                {{#if browserIncompatibleViewParams.playStoreGameUrl}}
+                <div id="store-android" style="display:block;">
+                    <div id="view-mobile-text" class="status-text">{{format browserIncompatibleViewParams.textDownloadFromGoogle}}</div>
+                </div>
+                {{/if}}
+                {{/if}}
+
+                {{#if browserIncompatibleViewParams.textDownloadFromApple}}
+                {{#if browserIncompatibleViewParams.iosStoreGameUrl}}
+                <div id="store-ios" style="display:block;">
+                    <div id="view-mobile-text" class="status-text">{{format browserIncompatibleViewParams.textDownloadFromApple}}</div>
+                </div>
+                {{/if}}
+                {{/if}}
+
+                {{#if browserIncompatibleViewParams.textDownloadFromWindows}}
+                {{#if browserIncompatibleViewParams.microsoftStoreGameUrl}}
+                <div id="store-wp" style="display:block;">
+                    <div id="view-mobile-text" class="status-text">{{format browserIncompatibleViewParams.textDownloadFromWindows}}</div>
+                </div>
+                {{/if}}
+                {{/if}}
+
+                {{#if browserIncompatibleViewParams.textVisitDesktop}}
+                <div id="store-other" style="display:block;">
+                    <div id="view-mobile-text" class="status-text">{{format browserIncompatibleViewParams.textVisitDesktop}}</div>
+                </div>
+                {{/if}}
+
+                <div id="listStores" class="list-stores" style="width: {{gameWidth}}px; height: 10px; display: {{ifLessGetString gameWidth 650 'block' 'inline-flex'}}">
+                    {{#if browserIncompatibleViewParams.playStoreGameUrl}}
+                    <div style="display: block; float: left;width: 50%;margin-top: 10px;margin-bottom: 10px;text-decoration: none">
+                        <a class="unselectable store-google" href="{{browserIncompatibleViewParams.playStoreGameUrl}}" target="_blank" style="background-image: url('{{browserIncompatibleViewParams.storeGoogleIconUrl}}'); display: block;margin: auto;width:140"/>
+                    </div>
+                    {{/if}}
+                    {{#if browserIncompatibleViewParams.iosStoreGameUrl}}
+                    <div style="display: block; float: left;width: 50%;margin-top: 10px;margin-bottom: 10px;text-decoration: none">
+                        <a class="unselectable store-google" href="{{browserIncompatibleViewParams.iosStoreGameUrl}}" target="_blank" style="background-image: url('{{browserIncompatibleViewParams.storeAppleIconUrl}}'); display: block;margin: auto;width:140"/>
+                    </div>
+                    {{/if}}
+                    {{#if browserIncompatibleViewParams.amazonStoreGameUrl}}
+                    <div style="display: block; float: left;width: 50%;margin-top: 10px;margin-bottom: 10px;text-decoration: none">
+                        <a class="unselectable store-google" href="{{browserIncompatibleViewParams.amazonStoreGameUrl}}" target="_blank" style="background-image: url('{{browserIncompatibleViewParams.storeAmazonIconUrl}}'); display: block;margin: auto;width:140"/>
+                    </div>
+                    {{/if}}
+                    {{#if browserIncompatibleViewParams.microsoftStoreGameUrl}}
+                    <div style="display: block; float: left;width: 50%;margin-top: 10px;margin-bottom: 10px;text-decoration: none">
+                        <a class="unselectable store-google" href="{{browserIncompatibleViewParams.microsoftStoreGameUrl}}" target="_blank" style="background-image: url('{{browserIncompatibleViewParams.storeMicrosoftIconUrl}}'); display: block;margin: auto;width:140"/>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            {{/ifEquals}}
+            <!--################# Incompatible browser-->
+            {{#isAorB browserCompatibilityStatus 'NOT_OK_UNSUPPORTED_BROWSER' 'NOT_OK_UNKNOWN_USER_AGENT'}}
+            <div id="view-incompatibility" class="view-inner" style="display:inline-block; width:{{gameWidth}}px ">
+                <div class="image-error" style="margin: 10% auto auto;display: block;text-align: center;object-fit: contain;">
+                    <img src="{{ gameSpecificBrowserIncompatibleViewParams.sadCharacterImageUrl }}"/>
+                </div>
+                <div class="status-text">{{format browserIncompatibleViewParams.textIncompatibleBrowser}}</div>
+                <div id="browserAlternatives" style="width: {{gameWidth}}px; height: 100%; display: {{ifLessGetString gameWidth 650 'block' 'inline-flex'}}" >
+                    {{#ifEquals gameSpecificBrowserIncompatibleViewParams.isFirefoxInAlternativeBrowserList true}}
+                    <a id="firefox"  href="https://www.mozilla.org/firefox/new/" target="_blank" style="display: block; float: left;width: 50%;margin-top: 10px;margin-bottom: 10px;text-decoration: none">
+                        <img src="{{browserIncompatibleViewParams.firefoxIconUrl}}" style="display: block;margin: auto;width: {{divideCapped gameWidth 4 80}}"/>
+                        <span class="text-browser">Firefox</span>
+                        <span class="text-vendor">Mozilla Foundation</span>
+                    </a>
+                    {{/ifEquals}}
+                    {{#ifEquals gameSpecificBrowserIncompatibleViewParams.isChromeInAlternativeBrowserList true}}
+                    <a id="chrome"   href="https://www.google.com/chrome/browser/desktop/" target="_blank" style="display: block;float: right;width: 50% ;margin-top: 10px;margin-bottom: 10px;text-decoration: none">
+                        <img src="{{browserIncompatibleViewParams.chromeIconUrl}}" style="display: block;margin: auto;width: {{divideCapped gameWidth 4 80}}"/>
+                        <span class="text-browser">Chrome</span>
+                        <span class="text-vendor">Google</span>
+                    </a>
+                    {{/ifEquals}}
+                    {{#ifEquals gameSpecificBrowserIncompatibleViewParams.isEdgeInAlternativeBrowserList true}}
+                    <a id="edge"   href="https://www.microsoft.com/en-us/windows/microsoft-edge" target="_blank" style="display: block;float: left;width: 50%; margin-top: 10px;margin-bottom: 10px;text-decoration: none">
+                        <img src="{{browserIncompatibleViewParams.edgeIconUrl}}" style="display: block;margin: auto;width: {{divideCapped gameWidth 4 80}}"/>
+                        <span class="text-browser">Edge</span>
+                        <span class="text-vendor">Microsoft</span>
+                    </a>
+                    {{/ifEquals}}
+                    {{#ifEquals gameSpecificBrowserIncompatibleViewParams.isOperaInAlternativeBrowserList true}}
+                    <a id="opera"   href="http://www.opera.com/" target="_blank" style="display: block;float: left;width: 50%;margin-top: 10px;margin-bottom: 10px;text-decoration: none">
+                        <img src="{{browserIncompatibleViewParams.operaIconUrl}}" style="display: block;margin: auto;width: {{divideCapped gameWidth 4 80}}"/>
+                        <span class="text-browser">Opera</span>
+                        <span class="text-vendor">Opera Software</span>
+                    </a>
+                    {{/ifEquals}}
+                    {{#ifEquals gameSpecificBrowserIncompatibleViewParams.isSafariInAlternativeBrowserList true}}
+                    <a id="safari"   href="https://support.apple.com/downloads/safari" target="_blank" style="display: block;float: left;width: 50%;margin-top: 10px;margin-bottom: 10px;text-decoration: none">
+                        <img src="{{browserIncompatibleViewParams.safariIconUrl}}" style="display: block;margin: auto;width: {{divideCapped gameWidth 4 80}}"/>
+                        <span class="text-browser">Safari</span>
+                        <span class="text-vendor">Apple</span>
+                    </a>
+                    {{/ifEquals}}
+                </div>
+            </div>
+            {{/isAorB}}
+            <!--################# No flash browser-->
+            {{#ifEquals browserCompatibilityStatus 'NOT_OK_FLASH_PLAYER_MISSING'}}
+            <div id="view-no-flash" class="view-inner" style="display:inline-block; width:{{gameWidth}}px">
+                <div class="image-error" style="margin: 10% auto auto;display: block;text-align: center;object-fit: contain;">
+                    <img src="{{ gameSpecificBrowserIncompatibleViewParams.sadCharacterImageUrl }}"/>
+                </div>
+                <div class="status-text">No Flash Player found. 11.0.0 or higher version required.&nbsp;&nbsp;&nbsp;</div>
+                <a href="https://www.adobe.com/go/getflashplayer" target="_blank">
+                    <img src="https://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" style="display: block;margin: auto">
+                </a>
+            </div>
+            {{/ifEquals}}
+            <!--################# Flash disabled by Chrome-->
+            {{#ifEquals browserCompatibilityStatus 'NOT_OK_CHROME_FLASH_PLAYER_DISABLED'}}
+            <div id="view-no-flash-chrome-disabled" class="view-inner" style="display:inline-block; width:{{gameWidth}}px">
+                <div class="image-error" style="margin: 10% auto auto;display: block;text-align: center;object-fit: contain;">
+                    <a href="{{ chromeEnableFlashUrl }}" target="_blank">
+                        <img src="{{ gameSpecificBrowserIncompatibleViewParams.enableFlashChromeImageUrl }}"/>
+                    </a>
+                </div>
+                <div class="status-text" style="margin-top: 20px;">No Flash Player found. 11.0.0 or higher version required.&nbsp;&nbsp;&nbsp;</div>
+                <a href="https://www.adobe.com/go/getflashplayer" target="_blank">
+                    <img src="https://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" style="display: block;margin: auto">
+                </a>
+            </div>
+            {{/ifEquals}}
+            <!--################# No web GL-->
+            {{#ifEquals browserCompatibilityStatus 'NOT_OK_WEB_GJ_MISSING'}}
+            <div id="view-no-webgl" class="view-inner" style="display:block">
+                <div class="image-error" style="margin: 10% auto auto;display: block;text-align: center;object-fit: contain;">
+                    <img src="{{ gameSpecificBrowserIncompatibleViewParams.sadCharacterImageUrl }}"/>
+                </div>
+                <div class="status-text">{{format browserIncompatibleViewParams.textNoWebGl}}</div>
+            </div>
+            {{/ifEquals}}
+            <!--################# Fatal-->
+            <div id="view-fatal" class="view-inner" style="display:none">
+                <div class="image-error" style="margin: 10% auto auto;display: block;text-align: center;object-fit: contain;">
+                    <img src="{{ gameSpecificBrowserIncompatibleViewParams.sadCharacterImageUrl }}"/>
+                </div>
+                <div class="status-text">{{format browserIncompatibleViewParams.textFatal}}</div>
+            </div>
+
+        </div>
+
+        <div id="social" class="fluidWidth" style="position: relative"></div>
+        <div id="bottomBanner" class="fluidWidth"/>
+        <div id="links" class="fluidWidth">
+            {{#if resetPageFullUrl}}<a href="{{resetPageFullUrl}}" style="background-color:yellow;color:{{footerFontColor}};z-index:99;" target="_blank">ResetPage</a>&nbsp;|&nbsp;{{/if}}
+            {{#if faqFullUrl}}<a href="{{faqFullUrl}}" style="text-decoration: none; color: {{footerFontColor}}; cursor: pointer" target="_blank">FAQ</a>&nbsp;|&nbsp;{{/if}}
+            {{#if fanPageFullUrl}}<a href="{{fanPageFullUrl}}" style="text-decoration: none; color: {{footerFontColor}}; cursor: pointer" target="_blank">Fan page</a>&nbsp;|&nbsp;{{/if}}
+            <a href="https://king.com/privacyPolicy" style="text-decoration: none; color: {{footerFontColor}}; cursor: pointer" target="_blank">Privacy policy</a>&nbsp;|&nbsp;
+            <a href="https://king.com/termsAndConditions" style="text-decoration: none; color: {{footerFontColor}}; cursor: pointer" target="_blank">Terms of use</a>&nbsp;|&nbsp;
+            <span style="color: {{footerFontColor}}" >&copy; {{copyrightYear}} King.com Ltd</span>
+        </div>
+    </div>
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9162e25b2e0d1262","version":"2025.1.0","r":1,"token":"b8df8b3d590a4e278837e71d6369b997","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
