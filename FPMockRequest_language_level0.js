@@ -1,4 +1,3 @@
-// code by mystic and ender_pearl
 let loadedLevels = {}
 let gameModesPerLevel = []
 
@@ -582,8 +581,8 @@ function gameInitLight() {
 
     }
 
-    console.log(navigator.language);
-    console.log(navigator.languages);
+    //console.log(navigator.language);
+    //console.log(navigator.languages);
     return {
         currentUser,
         resources,
@@ -605,8 +604,8 @@ function gameInitLight() {
                 "lastOnlineTime": 1736338198000,
                 "fullName": "You",
                 "name": "You",
-                "pic": "http://localhost/candycrush/odus100x100.png",
-                "picSquare": "http://localhost/candycrush/odus50x50.png",
+                "pic": "http://localhost/odus100x100.png",
+                "picSquare": "http://localhost/odus50x50.png",
                 "countryCode": "CA",
                 "topEpisode": 1,
                 "topLevel": 1,
@@ -655,10 +654,10 @@ window.MockRequest = function(url, params) {
     let result = {}
     try {
         switch (url) {
-            case "http://localhost/candycrush/api/gameInitLight": {
+            case "http://localhost/api/gameInitLight": {
                 result = gameInitLight()
                 break;
-            } case "http://localhost/candycrush/api/handOutItemWinnings": {
+            } case "http://localhost/api/handOutItemWinnings": {
                 //console.log('adding this')
                 let boostersAdd = JSON.parse(decoded['arg0'])
                 //console.log(boostersAdd)
@@ -666,7 +665,7 @@ window.MockRequest = function(url, params) {
                 result = getBalance()
                 break
             }
-            case "http://localhost/candycrush/api/useItemsInGame": {
+            case "http://localhost/api/useItemsInGame": {
                 //console.log('adding this')
                 let boostersAdd = JSON.parse(decoded['arg0'])
                 //console.log(boostersAdd)
@@ -674,35 +673,35 @@ window.MockRequest = function(url, params) {
                 result = getBalance()
                 break
             }
-            case "http://localhost/candycrush/api/gameStart2": {
+            case "http://localhost/api/gameStart2": {
                 result = gameStart(decoded['arg0'], decoded['arg1'])
                 break
             }
-            case "http://localhost/candycrush/api/getLevelToplist": {
+            case "http://localhost/api/getLevelToplist": {
                 result = getToplist(decoded['arg0'], decoded['arg1'])
                 break;
             }
-            case "http://localhost/candycrush/api/gameEnd3": {
+            case "http://localhost/api/gameEnd3": {
                 result = gameEnd(JSON.parse(decoded['arg0']))
                 break
             }
-            case "http://localhost/candycrush/api/poll": {
+            case "http://localhost/api/poll": {
                 result = {currentUser: getCurrentUser()}
                 break;
             }
-            case "http://localhost/candycrush/api/getMessages": {
+            case "http://localhost/api/getMessages": {
                 result = {events: [], currentUser: getCurrentUser()}
                 break;
             }
-            case "http://localhost/candycrush/api/getBalance": {
+            case "http://localhost/api/getBalance": {
                 result = getBalance()
                 break;
             }
-            case "http://localhost/candycrush/api/unlockItem": {
+            case "http://localhost/api/unlockItem": {
                 result = addBoosters([{type:decoded['arg0'], amount:0}], true)
                 break
             }
-            case "http://localhost/candycrush/candycrushapi/getWebFileUrl": {
+            case "http://localhost/candycrushapi/getWebFileUrl": {
                 let wfu = decoded['arg0']
                 switch (wfu) {
                     case "/s.json":
@@ -717,27 +716,27 @@ window.MockRequest = function(url, params) {
                 }
                 break
             }
-            case "http://localhost/candycrush/candycrushapi/getGameModes": {
+            case "http://localhost/candycrushapi/getGameModes": {
                 result = ["Classic", "Classic moves", "Drop down", "Light up", "Order", "Frogger", "Jelly Drop down", "Jelly Order", "Order Drop", "Jelly Color", "Jelly Time"]
                 break
             }
-            case "http://localhost/candycrush/candycrushapi/getGameModePerLevel": {
+            case "http://localhost/candycrushapi/getGameModePerLevel": {
                 result = gameModesPerLevel
                 break
             }
-            case "http://localhost/candycrush/candycrushapi/getCandyProperties": {
+            case "http://localhost/candycrushapi/getCandyProperties": {
                 result = {candyProperties: getCandyProperties()}
                 break
             }
-            case "http://localhost/candycrush/candycrushapi/getLevelAbTests": {
+            case "http://localhost/candycrushapi/getLevelAbTests": {
                 result = []
                 break
             }
-            case "http://localhost/candycrush/candycrushapi/setCandyProperty": {
+            case "http://localhost/candycrushapi/setCandyProperty": {
                 setCandyProperty(decoded['arg0'],decoded['arg1'])
                 break
             }
-            case "http://localhost/candycrush/candycrushapi/deliverInitialHardCurrencyGiftForIntroPop": {
+            case "http://localhost/candycrushapi/deliverInitialHardCurrencyGiftForIntroPop": {
                 let currentUser = get('currentUser')
                 setCandyProperty('introduceHardCurrency', 'true')
                 if (!currentUser.hasGottenInitialGift) {
@@ -746,17 +745,17 @@ window.MockRequest = function(url, params) {
                 }
                 set('currentUser',currentUser)
             }
-            case "http://localhost/candycrush/candycrushapi/getWheelOfBoosterPrize": {
+            case "http://localhost/candycrushapi/getWheelOfBoosterPrize": {
                 result = getWheelPrize()
                 break
             }
-            case "http://localhost/candycrush/api/setSoundFx": {
+            case "http://localhost/api/setSoundFx": {
                 let currentUser = get('currentUser')
                 currentUser.soundFx = JSON.parse(decoded['arg0'])
                 set('currentUser', currentUser)
                 break
             }
-            case "http://localhost/candycrush/api/setSoundMusic": {
+            case "http://localhost/api/setSoundMusic": {
                 let currentUser = get('currentUser')
                 currentUser.soundMusic = JSON.parse(decoded['arg0'])
                 set('currentUser', currentUser)
