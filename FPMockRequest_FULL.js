@@ -17,6 +17,125 @@ function get(key) {
     return JSON.parse(localStorage.getItem(key))
 }
 
+// i cannot gurantee that all of these languages are supported, but they are the ones that are in the games api.
+    const supportedLanguages = [
+         'cs', 'da', 'es', 'fi', 'fr', 'ge', 'he', 'hi',
+        'hr', 'hu', 'in', 'it', 'nb', 'nl', 'no', 'pt', 'ro', 'ru',
+        'sk', 'sv', 'th', 'tr', 'vn', 'jp', 'kr', 'pl'
+    ];
+// The default language is 'en' (English) if no match is found.
+// The legacy language codes are mapped to the real browser language codes.
+// ar, ja, ko, id, zh, el, de, vi are mapped to 'ar', 'jp', 'kr', 'in', 'cn', 'gr', 'ge', 'vn' respectively.
+// Greek, Chinese, and Arabic cause issues with the game and thus have been commented out.
+
+    // Map real browser language codes
+    const legacyLangMap = {
+        de: 'ge',
+      //  el: 'gr',
+        ja: 'jp',
+       // zh: 'cn',
+       ko: 'kr',
+        id: 'in',
+        vi: 'vn'
+    };
+
+    const browserLang = navigator.language.toLowerCase().split('-')[0];
+    const languageKey = legacyLangMap[browserLang] || browserLang;
+
+// preloader strings are in the gameInitStrings. we need to filter them out
+let obj = window.gameInitStrings["candycrush.candycrush"]; 
+
+// swap for language if it is supported
+   if (languageKey !== 'en' && supportedLanguages.includes(languageKey)) {
+        obj = window[`gameInitStrings${languageKey.toUpperCase()}`]["candycrush.candycrush"];
+
+    }
+
+// strings we need
+/*
+old version.
+let stringsNeeded = [
+    "preloader_loading_part1_message",
+    "preloader_loading_part2_message",
+    "preloader_loading_part3_message",
+    "preloader_loading_part4_message",
+    "preloader_loading_part5_message",
+    "preloader_loading_part6_message",
+    "preloader_loading_header",
+    "preloader_loading_complete_header",
+    "preloader_tips_header",
+    "preloader_tips_cake",
+    "preloader_tips_chameleon",
+    "preloader_tips_chocolate",
+    "preloader_tips_colorbomb",
+    "preloader_tips_dreamworld",
+    "preloader_tips_dreamworld_2",
+    "preloader_tips_dreamworld_3",
+    "preloader_tips_dreamworld_4",
+    "preloader_tips_fish",
+    "preloader_tips_fish_2",
+    "preloader_tips_fish_3",
+    "preloader_tips_friends",
+    "preloader_tips_friends_2",
+    "preloader_tips_hammer",
+    "preloader_tips_icing",
+    "preloader_tips_lucky",
+    "preloader_tips_marmelade",
+    "preloader_tips_minty",
+    "preloader_tips_mystery",
+    "preloader_tips_odus",
+    "preloader_tips_pepperbomb",
+    "preloader_tips_soda",
+    "preloader_tips_soda_2",
+    "preloader_tips_soda_3",
+    "preloader_tips_spawner",
+    "preloader_tips_striped",
+    "preloader_tips_striped_2",
+    "preloader_tips_striped_3",
+    "preloader_tips_striped_4",
+    "preloader_tips_switch",
+    "preloader_tips_teeth",
+    "preloader_tips_time",
+    "preloader_tips_toffee",
+    "preloader_tips_toffee_2",
+    "preloader_tips_troll",
+    "preloader_tips_troll_2",
+    "preloader_tips_troll_3",
+    "preloader_tips_wrapped",
+    "preloader_tips_wrapped_2",
+    "preloader_tips_wrapped_3",
+    "preloader_tips_yeti",
+    "preloader_error_message"
+];
+
+// Build filtered object in correct order
+let filtered = {};
+for (let key of stringsNeeded) {
+    if (obj[key]) {
+        filtered[key] = obj[key];
+    }
+}
+
+// Convert to JSON string and escape double quotes
+let jsonString = JSON.stringify(filtered);
+let escapedString = jsonString.replace(/"/g, '\\"');
+*/
+//console.log(`"${escapedString}"`);
+
+// Filter the object to only include keys starting with "preloader_"
+let filtered = {};
+
+// Only include keys starting with "preloader_"
+for (let key in obj) {
+    if (key.startsWith("preloader_")) {
+        filtered[key] = obj[key];
+    }
+}
+
+// Convert to JSON 
+let preloaderStrings = JSON.stringify(filtered);
+
+
 /*
 I don't believe the "type" name matters too much for this specifically
 [
@@ -570,30 +689,6 @@ function gameInitLight() {
 
     // this could change in the future..
     let language = 'en'
-// i cannot gurantee that all of these languages are supported, but they are the ones that are in the games api.
-    const supportedLanguages = [
-         'cs', 'da', 'default', 'es', 'fi', 'fr', 'ge', 'he', 'hi',
-        'hr', 'hu', 'in', 'it', 'nb', 'nl', 'no', 'pt', 'ro', 'ru',
-        'sk', 'sv', 'th', 'tr', 'vn'
-    ];
-// The default language is 'en' (English) if no match is found.
-// The legacy language codes are mapped to the real browser language codes.
-// ar, ja, ko, id, zh, el, de, vi are mapped to 'ar', 'jp', 'kr', 'in', 'cn', 'gr', 'ge', 'vn' respectively.
-// Greek, Japanese, Koreon, Chinese, and Arabic cause issues with the game and thus have been commented out.
-
-    // Map real browser language codes
-    const legacyLangMap = {
-        de: 'ge',
-      //  el: 'gr',
-      //  ja: 'jp',
-       // zh: 'cn',
-       // ko: 'kr',
-        id: 'in',
-        vi: 'vn'
-    };
-
-    const browserLang = navigator.language.toLowerCase().split('-')[0];
-    const languageKey = legacyLangMap[browserLang] || browserLang;
 
     if (languageKey !== 'en' && supportedLanguages.includes(languageKey)) {
         language = languageKey;
