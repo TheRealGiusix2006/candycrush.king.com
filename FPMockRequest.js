@@ -24035,6 +24035,14 @@ window.MockRequest = function(url, params) {
                 result = addBoosters([{type:decoded['arg0'], amount:0}], true)
                 break
             }
+			case "http://candycrush.king.com/crossdomain.xml": {
+				result = '{}';
+				break
+			}
+			case "https://candycrush.king.com/crossdomain.xml": {
+				result = '{}';
+				break
+			}
             case "http://candycrush.king.com/candycrushapi/getWebFileUrl": {
                 let wfu = decoded['arg0']
                 switch (wfu) {
