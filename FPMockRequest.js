@@ -23938,8 +23938,8 @@ function gameInitLight() {
                 "lastOnlineTime": 1736338198000,
                 "fullName": "You",
                 "name": "You",
-                "pic": "http://candycrush.king.com/odus100x100.png",
-                "picSquare": "http://candycrush.king.com/odus50x50.png",
+                "pic": "http://0.0.0.0/odus100x100.png",
+                "picSquare": "http://0.0.0.0/odus50x50.png",
                 "countryCode": "CA",
                 "topEpisode": 1,
                 "topLevel": 1,
@@ -23988,10 +23988,10 @@ window.MockRequest = function(url, params) {
     let result = {}
     try {
         switch (url) {
-            case "http://candycrush.king.com/api/gameInitLight": {
+            case "http://0.0.0.0/api/gameInitLight": {
                 result = gameInitLight()
                 break;
-            } case "http://candycrush.king.com/api/handOutItemWinnings": {
+            } case "http://0.0.0.0/api/handOutItemWinnings": {
                 //console.log('adding this')
                 let boostersAdd = JSON.parse(decoded['arg0'])
                 //console.log(boostersAdd)
@@ -23999,7 +23999,7 @@ window.MockRequest = function(url, params) {
                 result = getBalance()
                 break
             } 
-            case "http://candycrush.king.com/api/useItemsInGame": {
+            case "http://0.0.0.0/api/useItemsInGame": {
                 //console.log('adding this')
                 let boostersAdd = JSON.parse(decoded['arg0'])
                 //console.log(boostersAdd)
@@ -24007,43 +24007,35 @@ window.MockRequest = function(url, params) {
                 result = getBalance()
                 break
             }
-            case "http://candycrush.king.com/api/gameStart2": {
+            case "http://0.0.0.0/api/gameStart2": {
                 result = gameStart(decoded['arg0'], decoded['arg1'])
                 break
             }
-            case "http://candycrush.king.com/api/getLevelToplist": {
+            case "http://0.0.0.0/api/getLevelToplist": {
                 result = getToplist(decoded['arg0'], decoded['arg1'])
                 break;
             }
-            case "http://candycrush.king.com/api/gameEnd3": {
+            case "http://0.0.0.0/api/gameEnd3": {
                 result = gameEnd(JSON.parse(decoded['arg0']))
                 break
             }
-            case "http://candycrush.king.com/api/poll": {
+            case "http://0.0.0.0/api/poll": {
                 result = {currentUser: getCurrentUser()}
                 break;
             }
-            case "http://candycrush.king.com/api/getMessages": {
+            case "http://0.0.0.0/api/getMessages": {
                 result = {events: [], currentUser: getCurrentUser()}
                 break;
             }
-            case "http://candycrush.king.com/api/getBalance": {
+            case "http://0.0.0.0/api/getBalance": {
                 result = getBalance()
                 break;
             }
-            case "http://candycrush.king.com/api/unlockItem": {
+            case "http://0.0.0.0/api/unlockItem": {
                 result = addBoosters([{type:decoded['arg0'], amount:0}], true)
                 break
             }
-			case "http://candycrush.king.com/crossdomain.xml": {
-				result = '{}';
-				break
-			}
-			case "https://candycrush.king.com/crossdomain.xml": {
-				result = '{}';
-				break
-			}
-            case "http://candycrush.king.com/candycrushapi/getWebFileUrl": {
+            case "http://0.0.0.0/candycrushapi/getWebFileUrl": {
                 let wfu = decoded['arg0']
                 switch (wfu) {
                     case "/s.json":
@@ -24058,27 +24050,27 @@ window.MockRequest = function(url, params) {
                 }
                 break
             }
-            case "http://candycrush.king.com/candycrushapi/getGameModes": {
+            case "http://0.0.0.0/candycrushapi/getGameModes": {
                 result = ["Classic", "Classic moves", "Drop down", "Light up", "Order", "Frogger", "Jelly Drop down", "Jelly Order", "Order Drop", "Jelly Color", "Jelly Time"]
                 break
             }
-            case "http://candycrush.king.com/candycrushapi/getGameModePerLevel": {
+            case "http://0.0.0.0/candycrushapi/getGameModePerLevel": {
                 result = gameModesPerLevel
                 break
             }
-            case "http://candycrush.king.com/candycrushapi/getCandyProperties": {
+            case "http://0.0.0.0/candycrushapi/getCandyProperties": {
                 result = {candyProperties: getCandyProperties()}
                 break
             }
-            case "http://candycrush.king.com/candycrushapi/getLevelAbTests": {
+            case "http://0.0.0.0/candycrushapi/getLevelAbTests": {
                 result = []
                 break
             }
-            case "http://candycrush.king.com/candycrushapi/setCandyProperty": {
+            case "http://0.0.0.0/candycrushapi/setCandyProperty": {
                 setCandyProperty(decoded['arg0'],decoded['arg1'])
                 break
             }
-            case "http://candycrush.king.com/candycrushapi/deliverInitialHardCurrencyGiftForIntroPop": {
+            case "http://0.0.0.0/candycrushapi/deliverInitialHardCurrencyGiftForIntroPop": {
                 let currentUser = get('currentUser')
                 setCandyProperty('introduceHardCurrency', 'true')
                 if (!currentUser.hasGottenInitialGift) {
@@ -24087,17 +24079,17 @@ window.MockRequest = function(url, params) {
                 }
                 set('currentUser',currentUser)
             }
-            case "http://candycrush.king.com/candycrushapi/getWheelOfBoosterPrize": {
+            case "http://0.0.0.0/candycrushapi/getWheelOfBoosterPrize": {
                 result = getWheelPrize()
                 break
             }
-            case "http://candycrush.king.com/api/setSoundFx": {
+            case "http://0.0.0.0/api/setSoundFx": {
                 let currentUser = get('currentUser')
                 currentUser.soundFx = JSON.parse(decoded['arg0'])
                 set('currentUser', currentUser)
                 break
             }
-            case "http://candycrush.king.com/api/setSoundMusic": {
+            case "http://0.0.0.0/api/setSoundMusic": {
                 let currentUser = get('currentUser')
                 currentUser.soundMusic = JSON.parse(decoded['arg0'])
                 set('currentUser', currentUser)
