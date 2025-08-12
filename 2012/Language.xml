@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!-- 编辑使用 XMLSpy v2006 U (http://www.altova.com) 由 any (any) -->
+<!--xpath#//info/@value-->
+<root>
+	<apps.loveme.dialog>
+		<info key="booster_description_CandyCoconutLiquorice" value="Add powerful Coconut Wheels to the candy mix!"/>
+		<info key="booster_description_CandyColorBomb" value="Start the game with a Color Bomb!"/>
+		<info key="booster_description_CandyColorRemove" value="Removes one color from the candy mix! Very powerful!"/>
+		<info key="booster_description_CandyComboHelper" value="Get help to find the most powerful switches!"/>
+		<info key="booster_description_CandyDoubleScores" value="Activate to add x2 Bonus Candies to the candy mix!"/>
+		<info key="booster_description_CandyExtraMoves" value="Activate now to get 5 extra moves!"/>
+		<info key="booster_description_CandyExtraTime" value="Start the game with {0} extra seconds play time!"/>
+		<info key="booster_description_CandyHammer" value="Smash a candy!"/>
+		<info key="booster_description_CandyShuffle" value="Shuffles the candy mix to find new switches!"/>
+		<info key="booster_description_CandySwedishFish" value="Adds Jelly Fish candies to the candy mix, which clears three pieces of jelly when you match three candies!"/>
+		<info key="booster_info_bubble_autoRegen_desc_CandyHammer" value="You get {0} free Lollipop Hammers every 20 hours!"/>
+		<info key="booster_info_bubble_button_create" value="Create"/>
+		<info key="booster_info_bubble_button_purchase" value="Purchase"/>
+		<info key="booster_info_bubble_recipe_title" value="Ingredients:"/>
+		<info key="booster_name_CandyCoconutLiquorice" value="Coconut Wheel"/>
+		<info key="booster_name_CandyColorBomb" value="Color Bomb"/>
+		<info key="booster_name_CandyColorRemove" value="Color Remover"/>
+		<info key="booster_name_CandyExtraMoves" value="Extra Moves"/>
+		<info key="booster_name_CandyExtraTime" value="Extra Time"/>
+		<info key="booster_name_CandyHammer" value="Lollipop Hammer"/>
+		<info key="booster_name_CandyShuffle" value="Shuffle"/>
+		<info key="booster_name_CandySwedishFish" value="Jelly Fish"/>
+		<info key="booster_reminder_description_CandyExtraMoves" value="5 extra moves!"/>
+		<info key="cutscene_Alien_introduction_Fix_That" value="I will fix that!"/>
+		<info key="cutscene_bunny_introduction_stuck_in_chocolate" value="I am stuck in the chocolate. Please, help!"/>
+		<info key="cutscene_button_next" value="NEXT"/>
+		<info key="cutscene_button_skip" value="SKIP"/>
+		<info key="cutscene_dragon_introduction_no_lemonade" value="*sob* The lake is out of lemonade!"/>
+		<info key="cutscene_dragon_resolution_hurray_lemonade" value="Hurray!"/>
+		<info key="cutscene_girl_introduction_go_that_way" value="Pssst, the world is that way!"/>
+		<info key="cutscene_girl_introduction_time_to_explore" value="Well, it is about time to go out and explore the world!"/>
+		<info key="cutscene_robot_introduction_bzzt" value="Bzzt... zprrkl..."/>
+		<info key="cutscene_robot_introduction_bzzt_more" value="Bzzt... pling... more... candy..."/>
+		<info key="cutscene_robot_introduction_need_candy" value="I need more candy!"/>
+		<info key="cutscene_robot_resolution_hurray" value="Awesome!"/>
+		<info key="cutscene_robot_resolution_me_help" value="Now it is my turn to help you!"/>
+		<info key="cutscene_robot_resolution_thanks" value="Thanks for starting me up!"/>
+		<info key="cutscene_troll_introduction_smells_candy" value="Ahh, smells like candy!"/>
+		<info key="cutscene_unicorn_introduction_no_horne" value="Alas, what is a unicorn without a horne?"/>
+		<info key="cutscene_yeti_introduction_help_please" value="Mr. Yeti, can you please help?"/>
+		<info key="cutscene_yeti_introduction_how_wake_up" value="Mr. Yeti is asleep. How can I wake him up?"/>
+		<info key="cutscene_yeti_introduction_mr_yeti" value="Mr. Yeti?"/>
+		<info key="cutscene_yeti_resolution_let_me_help" value="Please... let me help you!"/>
+		<info key="cutscene_yeti_resolution_mr_yeti" value="Mr Yeti...?"/>
+		<info key="cutscene_yeti_resolution_thanks" value="Thanks for waking me up!"/>
+		<info key="facebook_episode_complete_share_description" value="Click here to come on in and celebrate with me!"/>
+		<info key="facebook_episode_complete_share_name" value="I just completed episode {0}, happy days!"/>
+		<info key="facebook_episode_complete_share_promt" value="Wow, episode {0} in Candy Crush Saga!"/>
+		<info key="facebook_friend_beaten_share_description" value="Click on the image to challenge me!"/>
+		<info key="facebook_friend_beaten_share_name" value="I got {0} points... {1} points more than you!"/>
+		<info key="facebook_friend_beaten_share_promt" value="{1}, I beat your score at level {0}!"/>
+		<info key="facebook_friend_passed_share_description" value="Come play and see if you can catch up!"/>
+		<info key="facebook_friend_passed_share_name" value="Hey, you are falling behind, I just completed level {0}!"/>
+		<info key="facebook_friend_passed_share_promt" value="I passed you in Candy Crush Saga!"/>
+		<info key="facebook_request_collaboration_help_message" value="I need to unlock the next episode! Can you please help me out?"/>
+		<info key="facebook_request_collaboration_help_title" value="These friends can help you to the next episode!"/>
+		<info key="facebook_request_life_help_message" value="I am out of lives, could you please send me one?"/>
+		<info key="facebook_request_life_help_title" value="These friends can help get you an extra life!"/>
+		<info key="facebook_saga_complete_share_description" value="There is a ton of new stuff coming to Candy Crush Saga real soon!"/>
+		<info key="facebook_saga_complete_share_name" value="Far from the end...?"/>
+		<info key="facebook_send_help_accept_message" value="I will help you unlock the next episode!"/>
+		<info key="facebook_send_help_accept_title" value="Here is your ticket!"/>
+		<info key="facebook_send_life_accepted_message" value="Here is a life! Good Luck!"/>
+		<info key="facebook_send_life_accepted_title" value="Send a life, it is free!"/>
+		<info key="facebook_send_life_scorelist_message" value="Here is a life, have a great day!"/>
+		<info key="facebook_send_life_scorelist_title" value="Give a life to your friend, it is free!"/>
+		<info key="game_ingredients_list_header" value="Bring down:"/>
+		<info key="game_swipe_end_lose_message" value="Level failed!"/>
+		<info key="game_swipe_end_lose_message_reason_ingredients" value="Level failed!"/>
+		<info key="game_swipe_end_lose_message_reason_lights" value="Level failed!"/>
+		<info key="game_swipe_end_lose_message_reason_moves" value="Level failed!"/>
+		<info key="game_swipe_end_lose_message_reason_pepper_candy" value="FALSE"/>
+		<info key="game_swipe_end_lose_message_reason_quit" value="You pressed the quit button!"/>
+		<info key="game_swipe_end_lose_message_reason_score" value="Get {0} points"/>
+		<info key="game_swipe_end_lose_message_reason_time" value="Level failed!"/>
+		<info key="game_swipe_end_win_header" value="Wonderful!"/>
+		<info key="game_swipe_end_win_message" value="Level completed!"/>
+		<info key="game_swipe_intro_mode_classic_header" value="Get {0} points in 60 seconds!"/>
+		<info key="game_swipe_intro_mode_classic_moves_header" value="Get {0} points in {1} moves!"/>
+		<info key="game_swipe_intro_mode_drop_down_header" value="Bring down all ingredients to the bottom!"/>
+		<info key="game_swipe_intro_mode_drop_down_score_header" value="Get {0} points and bring down all ingredients to the bottom!"/>
+		<info key="game_swipe_intro_mode_light_up_header" value="Clear all the jelly!"/>
+		<info key="game_swipe_intro_mode_light_up_score_header" value="Get {0} points and clear all the jelly!"/>
+		<info key="ingame_ui_sign_moves_left" value="moves:"/>
+		<info key="ingame_ui_sign_score" value="score:"/>
+		<info key="item_category_candyBooster" value="Booster"/>
+		<info key="item_category_candyCharm" value="Candy Charm"/>
+		<info key="item_category_candyResource" value="Ingredient"/>
+		<info key="map_decoration_text_episode_name_episode1" value="Candy Town"/>
+		<info key="map_decoration_text_episode_name_episode10" value="Wafer Wharf"/>
+		<info key="map_decoration_text_episode_name_episode11" value="Gingerbread Glade"/>
+		<info key="map_decoration_text_episode_name_episode12" value="Pastille Pyramid"/>
+		<info key="map_decoration_text_episode_name_episode13" value="Cupcake Circus"/>
+		<info key="map_decoration_text_episode_name_episode2" value="Candy Factory"/>
+		<info key="map_decoration_text_episode_name_episode3" value="Lemonade Lake"/>
+		<info key="map_decoration_text_episode_name_episode4" value="Chocolate Mountains"/>
+		<info key="map_decoration_text_episode_name_episode5" value="Minty Meadow"/>
+		<info key="map_decoration_text_episode_name_episode6" value="Easter Bunny Hills"/>
+		<info key="map_decoration_text_episode_name_episode7" value="Bubblegum Bridge"/>
+		<info key="map_decoration_text_episode_name_episode8" value="Salty Canyon"/>
+		<info key="map_decoration_text_episode_name_episode9" value="Peppermint Palace"/>
+		<info key="map_level_miniature_level" value="Level {0}"/>
+		<info key="popup_buy_lives_button_ask_friends" value="Ask friends"/>
+		<info key="popup_buy_lives_button_buy" value="Buy"/>
+		<info key="popup_buy_lives_message" value="You will automatically get an extra life at the end of the timer."/>
+		<info key="popup_buy_lives_title" value="Get more lives!"/>
+		<info key="popup_charms_shop_box_header_CandyCharmOfExtraLife" value="Charm of Life"/>
+		<info key="popup_charms_shop_box_header_CandyCharmOfStripedCandy" value="Charm of Stripes"/>
+		<info key="popup_charms_shop_box_message_CandyCharmOfExtraLife" value="This charm increases your maximum lives from 5 to 8! Buy now and get a full set of lives!"/>
+		<info key="popup_charms_shop_box_message_CandyCharmOfStripedCandy" value="This charm lets you paint stripes on any candy, once per game!"/>
+		<info key="popup_charms_shop_daily_offer_description_message" value="Did you know about the daily offers?"/>
+		<info key="popup_charms_shop_daily_offer_header" value="Mr. Yeti s Daily Offer"/>
+		<info key="popup_charms_shop_daily_offer_message_CandyCharmOfExtraLife" value="Your friends will thank you for giving them eternal extra lives!"/>
+		<info key="popup_charms_shop_daily_offer_none_header" value="SOLD OUT!"/>
+		<info key="popup_charms_shop_daily_offer_none_message" value="Please check again tomorrow."/>
+		<info key="popup_charms_shop_gift_button" value="Send Charm"/>
+		<info key="popup_charms_shop_gift_header" value="Surprise a friend with a gift!"/>
+		<info key="popup_charms_shop_gift_message" value="Why do not you buy a wonderful charm for a friend?  It is a gift that lasts forever."/>
+		<info key="popup_charms_shop_info_header" value="Charms Are Forever!"/>
+		<info key="popup_charms_shop_info_message" value="Some Charms can be activated once per game, other Charms help you out in other ways. But all Charms are forever!"/>
+		<info key="popup_charms_shop_secure_payment_message" value="SECURE PAYMENT"/>
+		<info key="popup_charms_shop_trialpay_button" value="Earn Credits"/>
+		<info key="popup_charms_single_buy_button" value="Buy"/>
+		<info key="popup_charms_single_earn_credits_button" value="Earn Credits"/>
+		<info key="popup_charms_single_info_header_CandyCharmOfExtraLife" value="Buy the Charm of Life!"/>
+		<info key="popup_charms_single_info_header_CandyCharmOfStripedCandy" value="Buy the Charm of Striped Candy!"/>
+		<info key="popup_charms_single_message_CandyCharmOfExtraLife" value="This charm permanently increases your maximum lives from 5 to 8!"/>
+		<info key="popup_charms_single_message_CandyCharmOfStripedCandy" value="This charm lets you paint stripes on any candy, once per game!"/>
+		<info key="popup_charms_single_open_shop_button" value="Go to shop"/>
+		<info key="popup_charms_single_unlocked_header_CandyCharmOfExtraLife" value="Charm of Life！"/>
+		<info key="popup_charms_single_unlocked_header_CandyCharmOfStripedCandy" value="Charm of Stripes!"/>
+		<info key="popup_collaboration_panel_button_buy" value="Unlock"/>
+		<info key="popup_collaboration_panel_button_friends" value="Ask friends"/>
+		<info key="popup_collaboration_panel_message" value="You need help from your friends to get a ticket! Ask as many as you can or buy a ticket to come aboard!"/>
+		<info key="popup_collaboration_panel_title" value="Unlock more levels!"/>
+		<info key="popup_collaboration_received_button_ok" value="ok"/>
+		<info key="popup_collaboration_received_header" value="You got help!"/>
+		<info key="popup_collaboration_received_message" value="Your friend {0} helps you board!"/>
+		<info key="popup_episode_complete_button_ok" value="Continue"/>
+		<info key="popup_episode_complete_button_share" value="Share"/>
+		<info key="popup_episode_complete_header" value="Episode {0} completed!"/>
+		<info key="popup_episode_complete_message" value="Wow, splendid days!"/>
+		<info key="popup_error_alert_button_ok" value="ok!"/>
+		<info key="popup_error_alert_message_header" value="An error was found, called:"/>
+		<info key="popup_error_alert_title" value="Ooooops! What happened?"/>
+		<info key="popup_friend_beaten_button_continue" value="Continue"/>
+		<info key="popup_friend_beaten_button_share" value="Share"/>
+		<info key="popup_friend_beaten_level" value="at level {0}"/>
+		<info key="popup_friend_beaten_message" value="Congratulations! You got a better score than {0}!"/>
+		<info key="popup_friend_beaten_title" value="Friend beaten"/>
+		<info key="popup_friend_passed_button_continue" value="Continue"/>
+		<info key="popup_friend_passed_button_share" value="Share"/>
+		<info key="popup_friend_passed_level" value="at level {0}"/>
+		<info key="popup_friend_passed_message" value="Sweet! You passed {0}."/>
+		<info key="popup_friend_passed_title" value="Friend passed"/>
+		<info key="popup_game_over_fail_reason_lights_unlit" value="Out of moves! You failed to remove all the jelly!"/>
+		<info key="popup_game_over_fail_reason_low_score" value="You failed to reach {0} points!"/>
+		<info key="popup_game_over_fail_reason_no_more_moves" value="You had no more possible switches!"/>
+		<info key="popup_game_over_fail_reason_out_of_time" value="Out of time! You failed to reach {0} points!"/>
+		<info key="popup_game_over_fail_reason_pepper_exploded" value="FALSE"/>
+		<info key="popup_game_over_fail_reason_quit_button_pressed" value="You pressed the Quit button!"/>
+		<info key="popup_game_over_fail_reason_uncollected_ingredients" value="Out of moves! You failed to collect all the ingredients!"/>
+		<info key="popup_game_over_loss_best_ever" value="Best"/>
+		<info key="popup_game_over_loss_button_retry" value="Try again"/>
+		<info key="popup_game_over_loss_message" value="You failed to reach {0} points!"/>
+		<info key="popup_game_over_loss_your_score" value="Score"/>
+		<info key="popup_game_over_title_loss" value="Level {0} failed"/>
+		<info key="popup_game_over_victory_best_ever" value="Your best:"/>
+		<info key="popup_game_over_victory_button_continue" value="Continue"/>
+		<info key="popup_game_over_victory_button_share" value="Next"/>
+		<info key="popup_game_over_victory_candy_collected" value="Candy collected:"/>
+		<info key="popup_game_over_victory_description" value="Click here to follow in my footsteps!"/>
+		<info key="popup_game_over_victory_message" value="Congratulations!"/>
+		<info key="popup_game_over_victory_name" value="I just completed level {0}, scored {1} points and got {2} stars."/>
+		<info key="popup_game_over_victory_promt" value="Yay, I completed level {0} in Candy Crush Saga!"/>
+		<info key="popup_game_over_victory_title" value="Level {0} completed!"/>
+		<info key="popup_game_over_victory_your_score" value="Your score:"/>
+		<info key="popup_game_start_best_score" value="Your best"/>
+		<info key="popup_game_start_button_play" value="Play"/>
+		<info key="popup_game_start_game_mode_balance" value="Gather {0} blue and {1} red candies to complete the level!"/>
+		<info key="popup_game_start_game_mode_classic" value="Reach {1} points within {0} seconds to complete the level!"/>
+		<info key="popup_game_start_game_mode_classic_moves" value="Score {0} points to complete the level!"/>
+		<info key="popup_game_start_game_mode_drop_down" value="Bring down all ingredients to complete the level!"/>
+		<info key="popup_game_start_game_mode_drop_down_score" value="Bring down all ingredients and score {0} points to complete the level!"/>
+		<info key="popup_game_start_game_mode_light_up" value="Clear all the jelly to complete the level!"/>
+		<info key="popup_game_start_game_mode_light_up_score" value="Clear all the jelly and get {0} to complete the level!"/>
+		<info key="popup_game_start_level" value="Level {0}"/>
+		<info key="popup_game_start_next_target" value="Target：{0}"/>
+		<info key="popup_game_start_select_boosters" value="Select boosters:"/>
+		<info key="popup_highscore_friends_label" value="High score"/>
+		<info key="popup_item_unlocked_button_continue" value="Continue"/>
+		<info key="popup_item_unlocked_message" value="Congratulations! You have unlocked a new {0}."/>
+		<info key="popup_item_unlocked_purchase_amount_CandyCoconutLiquorice" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyColorBomb" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyColorRemove" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyComboHelper" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyDoubleScores" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyDoubleScoresSuper" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyExtraMoves" value="1"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyExtraMovesPercent" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyExtraTime" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyHammer" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyHintBasic" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyMarshmallow" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyRainbow" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyShuffle" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandyShuffleSpecial" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandySugarDusting" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandySwedishFish" value="3"/>
+		<info key="popup_item_unlocked_purchase_amount_CandySweetener" value="3"/>
+		<info key="popup_item_unlocked_title" value="{0} unlocked"/>
+		<info key="popup_life_received_accept_send_message" value="Do you want to send a life back ?"/>
+		<info key="popup_life_received_button_accept_send" value="Accept Send"/>
+		<info key="popup_life_received_button_continue" value="Accept"/>
+		<info key="popup_life_received_message" value="You got an extra life from {0}!"/>
+		<info key="popup_life_received_title" value="You got a gift!"/>
+		<info key="popup_mission_accomplished_content" value="You completed the Bubble Witch Saga task and got a full set of lives and Lollipop Hammer as a reward!"/>
+		<info key="popup_mission_accomplished_continue_button" value="Continue"/>
+		<info key="popup_mission_accomplished_header" value="Well done!"/>
+		<info key="popup_mission_content" value="Play our hit game Bubble Witch Saga. When you have played level 8 you will get a full set of lives and a delicious Lollipop!"/>
+		<info key="popup_mission_continue_button" value="OK"/>
+		<info key="popup_mission_header" value="A bewitching deal!"/>
+		<info key="popup_no_more_lives_message" value="You are out of lives! You will automatically get an extra life at the end of the timer."/>
+		<info key="popup_no_more_lives_time" value="Time to next life:"/>
+		<info key="popup_no_more_lives_title" value="Get more lives!"/>
+		<info key="popup_notification_central_button_accept" value="Send"/>
+		<info key="popup_notification_central_header" value="Your messages"/>
+		<info key="popup_notification_central_life_request_header" value="Help {0}"/>
+		<info key="popup_notification_central_life_request_message" value="{0} is out of lives!"/>
+		<info key="popup_notification_central_message_count" value="{0} Requests"/>
+		<info key="popup_notification_central_unlock_request_header" value="Help {0} out"/>
+		<info key="popup_notification_central_unlock_request_message" value="{0} wants to unlock the next episode!"/>
+		<info key="popup_saga_complete_button_ok" value="See you!"/>
+		<info key="popup_saga_complete_button_share" value="Share"/>
+		<info key="popup_saga_complete_header" value="To be continued..."/>
+		<info key="popup_saga_complete_message" value="Soon there will be new places to explore. Until then you can replay previous levels to gain higher scores and more stars!"/>
+		<info key="popup_unlocked_item_description" value="{0}"/>
+		<info key="popup_unlocked_item_name" value="Unlocked{0}"/>
+		<info key="popup_unlocked_item_promt" value="I just unlocked {0}"/>
+		<info key="popup_videoad_btn_view" value="New Life"/>
+		<info key="popup_videoad_header" value="Video Ad"/>
+		<info key="popup_videoad_message" value="Watch an advertisement, get a life!"/>
+		<info key="popup_welcome_description" value="The sweetest game ever!"/>
+		<info key="popup_welcome_title" value="Welcome to"/>
+		<info key="powerup_tipster_booster_description" value="It seems like you are having trouble with this level. Maybe this booster can help you?"/>
+		<info key="powerup_tipster_buy_button" value="Buy"/>
+		<info key="powerup_tipster_charm_description" value="It seems like you are having trouble with this level. Maybe this charm can help you?"/>
+		<info key="powerup_tipster_title" value="Powerup tip!"/>
+		<info key="preloader_error_message" value="An error occurred while loading"/>
+		<info key="preloader_loading_complete_header" value="Candy complete!"/>
+		<info key="preloader_loading_header" value="Making candy"/>
+		<info key="preloader_loading_part1_message" value="Adding frosting"/>
+		<info key="preloader_loading_part2_message" value="Mixing ingredients"/>
+		<info key="preloader_loading_part3_message" value="Measuring sugar"/>
+		<info key="preloader_loading_part4_message" value="Heating oven"/>
+		<info key="preloader_loading_part5_message" value="Sampling"/>
+		<info key="preloader_loading_part6_message" value="Polishing"/>
+		<info key="social_share_invite_message" value="Do you want to join my adventures? Try Candy Crush Saga now!"/>
+		<info key="social_share_invite_title" value="Invite your friends!"/>
+		<info key="topnav_craft_button" value="Craft"/>
+		<info key="topnav_feedback_button" value="Give us feedback!"/>
+		<info key="topnav_full_life" value="Full"/>
+		<info key="topnav_invite_button" value="Play with Friends"/>
+		<info key="topnav_like_button" value="Like"/>
+		<info key="topnav_shop_button" value="Shop"/>
+		<info key="tutorial_button_skip" value="ok"/>
+		<info key="tutorial_explainSwitching_direction_down" value="Swipe this candy down to match 3 of the same!"/>
+		<info key="tutorial_explainSwitching_direction_left" value="Swipe this candy to the left to match 3 of the same!"/>
+		<info key="tutorial_explainSwitching_direction_right" value="Swipe this candy to the right to match 3 of the same!"/>
+		<info key="tutorial_explainSwitching_direction_up" value="Swipe this candy up to match 3 of the same!"/>
+		<info key="tutorial_explainSwitching_try_yourself" value="Make 3 more matches to complete the level!"/>
+		<info key="tutorial_idColorBomb1" value="Match 5 candies to create another special candy!"/>
+		<info key="tutorial_idColorBomb2" value="Mix it with any candy to remove all of that color!"/>
+		<info key="tutorial_idColorBomb3" value="You can mix all sorts of special candies for surprising effects!"/>
+		<info key="tutorial_idDropDown1" value="Bring the cherry ingredients down to the bottom row, by switching the candies beneath them!"/>
+		<info key="tutorial_idExplainLightUp1" value="Remove all jelly to complete the level!"/>
+		<info key="tutorial_idExplainLightUp2" value="Match over the jelly to remove it. Start with these three!"/>
+		<info key="tutorial_idMovesLeft" value="Score {0} points before you run out of moves!"/>
+		<info key="tutorial_idScoreLimitReached" value="Sweet, you reached {0} points and your first star! Try to get a higher score for even more stars!"/>
+		<info key="tutorial_idScoreMeter" value="More matches give you a better score. Get {0} points to complete the level!"/>
+		<info key="tutorial_idStriped1" value="Try to match 4 candies!"/>
+		<info key="tutorial_idStriped2" value="...to get a special candy!"/>
+		<info key="tutorial_idStriped3" value="Match it to get a line blast!"/>
+		<info key="tutorial_idStriped4" value="Now, try this one!"/>
+		<info key="tutorial_idStripedWrapped1" value="Mix two special candies to create a giant one!"/>
+		<info key="tutorial_idWorldIntroduction" value="Your adventure starts today! Click here to play Level 2!"/>
+		<info key="tutorial_idWrapped1" value="Try a T or L-shaped match!"/>
+		<info key="tutorial_idWrapped2" value="...to get a special candy! Match it to clear lots of candy!"/>
+		<info key="tutorial_introduceBoosterCandyCoconutLiquorice" value="Add powerful Coconut Wheels! Switch them or combine with special candy for cool effects. Click to toggle on or off!"/>
+		<info key="tutorial_introduceBoosterCandyColorBomb" value="Start your level out with a color bomb!"/>
+		<info key="tutorial_introduceBoosterCandyExtraMoves" value="Click here to get 5 extra moves!"/>
+		<info key="tutorial_introduceBoosterCandyHammer" value="Click here to get a hammer that can smash candy!"/>
+		<info key="tutorial_introduceBoosterCandySwedishFish" value="Add Jelly Fish! Match to use, or combine with other special candy. Click to toggle on or off!"/>
+		<info key="InviteFriendNumsPop_invite" value="Invite"/>
+		<info key="InviteFriendNumsPop_get" value="Get"/>
+		<info key="InviteFriendNumsPop_title" value="Invite 2 players to get a higher reward!"/>
+		<info key="InviteFriendNumsPop_invitenum" value="Invite number"/>
+		<info key="InviteFriendNumsPop_inviteitems" value="Reward items"/>
+		<info key="InviteFriendLevelPop_des" value="Each invite friend to reach the appropriate level to get the corresponding reward:"/>
+		<info key="InviteFriendLevelPop_level" value="Invite friend level"/>
+		<!--
+  <info key="booster_description_CandyMarshmallow"/>
+  <info key="booster_description_CandySugarDusting"/>
+  <info key="booster_name_CandyComboHelper"/>
+  <info key="booster_name_CandyDoubleScores"/>
+  <info key="booster_name_CandyMarshmallow"/>
+  <info key="booster_name_CandySugarDusting"/>
+  <info key="game_swipe_intro_mode_balance_header"/>
+  <info key="topnav_rate_button"/> -->
+	</apps.loveme.dialog>
+</root>
