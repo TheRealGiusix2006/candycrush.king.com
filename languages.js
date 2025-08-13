@@ -87,7 +87,7 @@ window.languages = {
 	},
 	zh: {
 		display: '中文',
-		font: 'DefaultFonts',
+		font: 'JapaneseFonts',
 		pageFont: 'undefined',
 		pageFontSize: '9',
 		language: 'zh',
