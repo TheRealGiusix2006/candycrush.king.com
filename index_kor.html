@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<title>캔디 크러쉬 사가</title>
+	<script>var lang = 'ko';</script>
 	<meta charset=utf-8 />
 	<script src="js/swfobject.js" type="text/javascript"></script>
 	<script src="FPGameInitStrings_kor.js"></script>
@@ -255,6 +256,81 @@
 				if(flag) history.go(0);
 			}
 			
+			function renameProfile() {
+				var name = prompt('새 이름을 입력하십시오');
+				if(!name) return;
+				var profiles = JSON.parse(localStorage.getItem('profiles'));
+				var pf = profiles.profiles.find(item => item.id == getProfile());
+				if(!pf) return;
+				for(var item of profiles.profiles) {
+					if(item.name == name && item.id != pf.id) {
+						alert('이미 존재하는 이름입니다');
+						return;
+					}
+				}
+				pf.name = name;
+				document.querySelector('li[data-id="' + pf.id + '"] a').textContent = name;
+				localStorage.setItem('profiles', JSON.stringify(profiles));
+			}
+			
+			function importProfile() {
+				var profiles = JSON.parse(localStorage.getItem('profiles'));
+				var data = prompt('프로필 데이타를 입력하십시오');
+				try {
+					data = JSON.parse(data);
+				} catch(e) {
+					return alert('데이타가 잘못되었습니다');
+				}
+				if(!data.name) data.name = prompt('프로필의 이름을 입력하십시오');
+				if(!data.name) return;
+				var name = data.name;
+				for(var item of profiles.profiles) {
+					if(item.name == name) {
+						name = prompt('이미 존재하는 이름입니다. 새 이름을 입력하거나 덮어쓰려면 비워두십시오');
+						if(name == null) return;
+						else if(!name) name = data.name;
+					}
+				}
+				var profiles = JSON.parse(localStorage.getItem('profiles'));
+				var id = profiles.increment + 1;
+				var li = document.createElement('li');
+				profiles.profiles.push({ name, id });
+				li.setAttribute('data-id', id);
+				li.innerHTML = '<a onclick="setProfile(' + id + ');">' + escapeHTML(name) + '</a>';
+				document.getElementById('profileList').appendChild(li);
+				profiles.increment++;
+				localStorage.setItem('profiles', JSON.stringify(profiles));
+				if(data.boosters)
+					localStorage.setItem('boosters_' + id, JSON.stringify(data.boosters));
+				if(data.candyProperties)
+					localStorage.setItem('candyProperties_' + id, JSON.stringify(data.candyProperties));
+				if(data.currentUser)
+					localStorage.setItem('currentUser_' + id, JSON.stringify(data.currentUser));
+				if(data.userUniverse)
+					localStorage.setItem('userUniverse_' + id, JSON.stringify(data.userUniverse));
+				if(data.wheelData)
+					localStorage.setItem('wheelData_' + id, JSON.stringify(data.wheelData));
+			}
+			
+			function exportProfile() {
+				var profiles = JSON.parse(localStorage.getItem('profiles'));
+				var pf = profiles.profiles.find(item => item.id == getProfile());
+				if(!pf) return alert('프로필이 존재하지 않습니다');
+				var a, b, c, d, e;
+				a = localStorage.getItem('boosters_' + pf.id);
+				b = localStorage.getItem('candyProperties_' + pf.id);
+				c = localStorage.getItem('currentUser_' + pf.id);
+				d = localStorage.getItem('userUniverse_' + pf.id);
+				e = localStorage.getItem('wheelData_' + pf.id);
+				var exp = { name: pf.name };
+				if(a) exp.boosters = a;
+				if(b) exp.candyProperties = b;
+				if(c) exp.currentUser = c;
+				if(d) exp.userUniverse = d;
+				if(e) exp.wheelData = e;
+				prompt('내보낸 프로필 데이타를 복사하십시오', JSON.stringify(exp));
+			}
+			
 			function setProfile(id) {
 				localStorage.setItem('selectedProfile', id + '');
 				history.go(0);
@@ -310,10 +386,27 @@
 					history.go(0);
 				}
 			}
+			
+			function toggleCard(el) {
+				if(el.nextElementSibling.style.display == 'none') {
+					el.nextElementSibling.style.display = 'block';
+					localStorage.setItem('card_' + el.getAttribute('id'), '1');
+				} else {
+					el.nextElementSibling.style.display = 'none';
+					localStorage.setItem('card_' + el.getAttribute('id'), '0');
+				}
+			}
+			
+			function initCards() {
+				document.querySelectorAll('dt[id]').forEach(el => {
+					if(localStorage.getItem('card_' + el.getAttribute('id')) == '0')
+						el.nextElementSibling.style.display = 'none';
+				});
+			}
 		</script>
 		
 		<style>
-			body { background: rgb(220, 235, 253); } td { vertical-align: top; padding-right: 20px; } dl dt { font-weight: bold; border-radius: 5px 5px 0 0; padding: 4px 6px 2px 6px; color: navy; background: linear-gradient(to right, rgb(194, 218, 248), rgb(103, 145, 224)); font-size: 11pt; } dl dd { border: 1px solid white; padding: 4px 8px 4px 8px; background-color: rgb(221, 236, 254); margin: 0; } dl dd li { margin-left: 20px; } dl dd li a { color: rgb(0, 61, 178); cursor: pointer; text-decoration: none; font-size: 9pt; }
+			body { font-family: '굴림', Gulim; background: rgb(220, 235, 253); } td { vertical-align: top; padding-right: 20px; } dl dt { cursor: pointer; font-weight: bold; border-radius: 5px 5px 0 0; padding: 4px 6px 2px 6px; color: rgb(0, 45, 134); background: linear-gradient(to right, rgb(194, 218, 248), rgb(103, 145, 224)); font-size: 11pt; } dl dd { width: 180px; border: 1px solid white; padding: 4px 8px 4px 8px; background-color: rgb(221, 236, 254); margin: 0; } dl dd li { margin-left: 20px; } dl dd li a { color: rgb(0, 61, 178); cursor: pointer; text-decoration: none; font-size: 9pt; } dl dd li a:hover { text-decoration: underline; }
 		</style>
 	</head>
 
@@ -328,34 +421,38 @@
 				
 				<td>
 					<dl>
-						<dt>프로필</dt>
+						<dt onclick="toggleCard(this);" id=profilesCard>프로필 전환</dt>
 						<dd id=profileList>
-							<li><a onclick="newProfile();">(새 프로필...)</a></li>
-							<li><a onclick="deleteProfile();">(프로필 삭제...)</a></li>
+							<li><a onclick="newProfile();">새 프로필...</a></li>
+							<li><a onclick="deleteProfile();">프로필 삭제...</a></li>
+							<li><a onclick="renameProfile();">프로필 이름 바꾸기...</a></li>
+							<li><a onclick="importProfile();">프로필 가져오기...</a></li>
+							<li><a onclick="exportProfile();">현재 프로필 내보내기...</a></li>
+							<br />
 						</dd>
 					</dl>
 					
 					<dl>
-						<dt>게임 작업</dt>
+						<dt onclick="toggleCard(this);" id=tasksCard>게임 작업</dt>
 						<dd>
 							<li><a onclick="unlockLevels();">레벨 잠금 해제</a></li>
 							<li><a onclick="chargeHearts();">하트 충전</a></li>
 							<li><a onclick="extendHearts();">최대 하트 수 조정</a></li>
 							<li><a onclick="addBooster();">부스터 추가</a></li>
 							<li><a onclick="addGold();">골드 바 추가</a></li>
-							<li><a href="swf/CCEditor.html">레벨 편집기</a></li>
+							<li><a target=_blank href="swf/CCEditor.html">레벨 편집기</a></li>
 						</dd>
 					</dl>
 					
 					<dl>
-						<dt>다른 언어</dt>
+						<dt onclick="toggleCard(this);" id=langCard>다른 언어</dt>
 						<dd>
 							<li><a href="index.html">영어</a></li>
 						</dd>
 					</dl>
 					
 					<dl>
-						<dt>다른 버전</dt>
+						<dt onclick="toggleCard(this);" id=versionCard>다른 버전</dt>
 						<dd>
 							<li><a href="2011/index.html">Candy Crush</a></li>
 							<li><a href="2012/index.html">Candy Crush Saga 2012</a></li>
@@ -366,6 +463,6 @@
 			</tr>
 		</table>
 		
-		<script>loadProfiles();</script>
+		<script>loadProfiles(); initCards();</script>
 	</body>
 </html>

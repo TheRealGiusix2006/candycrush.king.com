@@ -293,7 +293,6 @@ function getUserUniverse() {
 }
 
 function gameStart(episode, level) {
-    // this is to make lives go down by 1
     let data = get('currentUser_' + currentProfile)
     calcLives(data)
     data.lives--
@@ -310,31 +309,6 @@ function gameStart(episode, level) {
     }
     return res
 }
-
-/*
-endData "{"movesLeft":0,"movesInit":6,"movesMade":6,"seed":1736737840323,"score":780,"timeLeftPercent":-1,"reason":0,"episodeId":1,"cs":"1f21e0","levelId":1,"variant":0}"
-
-{
-  "bestResult": false,
-  "newStarLevel": false,
-  "episodeId": 1,
-  "levelId": 1,
-  "score": 600,
-  "stars": 3,
-  "events": [],
-  "levelToplist": {
-    "episodeId": 1,
-    "levelId": 1,
-    "toplist": [
-    ]
-  },
-  "userUniverse": {
-  },
-  "currentUser": {
-
-  }
-}
-*/
 
 function getToplist(episode, level) {
     let toplist = []
@@ -547,6 +521,8 @@ function gameInitLight() {
     
     // this could change in the future..
     let language = 'en'
+	
+	var name = getName();
 
     return {
         currentUser,
@@ -567,8 +543,8 @@ function gameInitLight() {
                 "userId": 937,
                 "externalUserId": "937",
                 "lastOnlineTime": 1736338198000,
-                "fullName": "You",
-                "name": "You",
+                "fullName": name,
+                "name": name,
                 "pic": "./odus100x100.png",
                 "picSquare": "./odus50x50.png",
                 "countryCode": "CA",
@@ -607,6 +583,17 @@ function setCandyProperty(key, value) {
     set('candyProperties_' + currentProfile, data)
 }
 
+function getName() {
+	try {
+		var profiles = JSON.parse(localStorage.getItem('profiles'));
+		if(!profiles) return 'Default';
+		var pf = profiles.profiles.find(item => item.id == getProfile());
+		if(!pf) return 'Default';
+		return pf.name || 'Default';
+	} catch(e) {
+		return 'Default';
+	}
+}
 
 window.MockRequest = function(url, params) {
     url = url.split('?')[0] // candycrushapi gives the query string differently sadly
@@ -733,7 +720,6 @@ window.MockRequest = function(url, params) {
     } catch (err) {
         console.error(err)
     }
-    //console.log(result)
     return JSON.stringify(result)
 }
 
@@ -778,9 +764,6 @@ function getProductPackages() {
                     }
                 })
             }
-            //if (item.deliverData) {
-            //    packageProduct.deliverData - item.deliverData
-            //}
             package.products.push(packageProduct)
         }
         res.push(package)
@@ -789,115 +772,95 @@ function getProductPackages() {
 }
 
 function handlePurchase(purchaseParams, isGoldPurchase) {
-    //console.log(purchaseParams)
-    let PackageId = purchaseParams.orderItems[0]?.productPackageType
-    let Package = window.PackagePrice.find((package)=>package.productId == PackageId)
-    //console.log(Package)
+    let PackageId = purchaseParams.orderItems[0]?.productPackageType;
+    let Package = window.PackagePrice.find((package)=>package.productId == PackageId);
 
-    let currentUser = get('currentUser_' + currentProfile)
-    if (isGoldPurchase || currentUser.gold >= Package.price) {
-        if (!isGoldPurchase) {
-            //console.log('removing gold...')
-            currentUser.gold -= Package.price
-        }
-        //console.log('adding boosters', Package.items.map((booster)=>({amount: booster.amount, type: booster.deliverItemType})))
-        addBoosters(Package.items.map((booster)=>({amount: booster.amount, type: booster.deliverItemType})), false)
+    let currentUser = get('currentUser_' + currentProfile);
+	if (!isGoldPurchase) {
+		currentUser.gold -= Package.price;
+	}
+	addBoosters(Package.items.map((booster)=>({amount: booster.amount, type: booster.deliverItemType})), false);
 
-        // for the special item types
-        for (let item of Package.items) {
-            switch (item.deliverItemType || item.itemType) {
-                case "CandyFullLife": {
-                    //console.log('refilling lives')
-                    currentUser.lives = currentUser.maxLives
-                    calcLives(currentUser)
-                    break
-                }
-                case "CandyHardCurrency": {
-                    //console.log('adding gold from itemDeliverKHCAmount')
-                    currentUser.gold += item.deliverKHCAmount
-                }
-            }
-        }
+	for (let item of Package.items) {
+		switch (item.deliverItemType || item.itemType) {
+			case "CandyFullLife": {
+				currentUser.lives = currentUser.maxLives;
+				calcLives(currentUser);
+				break;
+			}
+			case "CandyHardCurrency": {
+				currentUser.gold += item.deliverKHCAmount;
+			}
+		}
+	}
 
-        set('currentUser_' + currentProfile, currentUser)
-        //console.log('done purchase')
-        return {
-            status: "ok",
-            error: "",
-            transactionId: "example",
-            isPurchaseForAnotherUser: false
-        }
-    }
-    return {
-        status: "error",
-        error: "ur too broke lol",
-        transactionId: "example",
-        isPurchaseForAnotherUser: false
-    }
+	set('currentUser_' + currentProfile, currentUser);
+	return {
+		status: "ok",
+		error: "",
+		transactionId: "example",
+		isPurchaseForAnotherUser: false,
+	};
 }
 
-//game.externalInterfaceRpcReceive
-//ExternalInterfaceRpc.receive
 window.ExternalInterfaceRpc = {
-    receive: function(rpc) {
-        //console.log(rpc.method)
-        result = []
+    receive: function receive(rpc) {
+        result = [];
         switch (rpc.method) {
             case "ProductApi.getUserCurrency": {
-                result = "CAD"
+                result = "CAD";
                 break;
             }
             case "ProductApi.getAllProductPackages": {
-                result = getProductPackages()
-                break
+                result = getProductPackages();
+                break;
             }
             case "ProductJsApi.getPurchaseOutcomesToDisplay": {
-                result = []
-                break
+                result = [];
+                break;
             }
             case "ProductApi.purchase": {
-                result = handlePurchase(rpc.params[0])
-                break
+                result = handlePurchase(rpc.params[0]);
+                break;
             }
             case "ProductJsApi.buy2": {
-                result = handlePurchase(rpc.params[0], true)
+                result = handlePurchase(rpc.params[0], true);
                 break;
             }
             default: {
-                console.warn(`unknown method ${rpc.method}`, rpc.params)
-                break
+                console.warn(`unknown method ${rpc.method}`, rpc.params);
+                break;
             }
         }
 
-        setTimeout(()=>{
+        setTimeout(() => {
             try {
-                //console.log(result)
                 game.externalInterfaceRpcReceive({
-                        id: rpc.id,
-                        result: result
-                })
+					id: rpc.id,
+					result: result,
+                });
             } catch (err) {
-                //console.error(err)
             }
-        },250)
+        }, 250);
     }
 }
 
-
-// load levels
-fetch('./resources/game-configuration.json').then(res=>res.json().then((levels)=>{
-    loadedLevels = {
-    }
+fetch('./resources/game-configuration.json').then(res => res.json().then(levels => {
+    loadedLevels = {};
     for (let level of levels) {
         if (!loadedLevels[level.episode]) {
-            loadedLevels[level.episode] = {}
+            loadedLevels[level.episode] = {};
         }
-        loadedLevels[level.episode][level.level] = level
+        loadedLevels[level.episode][level.level] = level;
     }
-    console.log('loaded levels!')
-}))
+})).catch(e => {
+	alert(lang == 'ko' ? '레벨 데이타를 불러오지 못했습니다' : 'Failed to load levels'); 
+	history.go(0);
+});
 
-fetch('./candycrushapi/getGameModePerLevel').then(res=>res.json().then((json)=>{
-    gameModesPerLevel = json
-    console.log('loaded game modes per level')
-}))
+fetch('./candycrushapi/getGameModePerLevel').then(res => res.json().then(json => {
+    gameModesPerLevel = json;
+})).catch(e => {
+	alert(lang == 'ko' ? '레벨 데이타를 불러오지 못했습니다' : 'Failed to load level data!');
+	history.go(0);
+});

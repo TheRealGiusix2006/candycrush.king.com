@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<title>Candy Crush Saga</title>
 	<meta charset=utf-8 />
+	<script>var lang = 'en';</script>
 	<script src="js/swfobject.js" type="text/javascript"></script>
 	<script src="FPGameInitStrings.js"></script>
 	<script src="FPBoosterIdentifiers.js"></script>
@@ -240,7 +241,6 @@
 				var id = profiles.profiles[pfidx].id;
 				profiles.profiles.splice(pfidx, 1);
 				document.querySelector('li[data-id="' + id + '"]').remove();
-				localStorage.setItem('profiles', JSON.stringify(profiles));
 				var flag = false;
 				if(localStorage.getItem('selectedProfile') == id) {
 					localStorage.setItem('selectedProfile', '1');
@@ -253,6 +253,81 @@
 				localStorage.removeItem('userUniverse_' + id);
 				localStorage.removeItem('wheelData_' + id);
 				if(flag) history.go(0);
+			}
+			
+			function renameProfile() {
+				var name = prompt('Enter the new name');
+				if(!name) return;
+				var profiles = JSON.parse(localStorage.getItem('profiles'));
+				var pf = profiles.profiles.find(item => item.id == getProfile());
+				if(!pf) return;
+				for(var item of profiles.profiles) {
+					if(item.name == name && item.id != pf.id) {
+						alert('That name already exists.');
+						return;
+					}
+				}
+				pf.name = name;
+				document.querySelector('li[data-id="' + pf.id + '"] a').textContent = name;
+				localStorage.setItem('profiles', JSON.stringify(profiles));
+			}
+			
+			function importProfile() {
+				var profiles = JSON.parse(localStorage.getItem('profiles'));
+				var data = prompt('Enter profile data');
+				try {
+					data = JSON.parse(data);
+				} catch(e) {
+					return alert('Invalid data');
+				}
+				if(!data.name) data.name = prompt('Enter the name for this profile');
+				if(!data.name) return;
+				var name = data.name;
+				for(var item of profiles.profiles) {
+					if(item.name == name) {
+						name = prompt('That name already exists. Enter a new name or leave it blank to overwrite');
+						if(name == null) return;
+						else if(!name) name = data.name;
+					}
+				}
+				var profiles = JSON.parse(localStorage.getItem('profiles'));
+				var id = profiles.increment + 1;
+				var li = document.createElement('li');
+				profiles.profiles.push({ name, id });
+				li.setAttribute('data-id', id);
+				li.innerHTML = '<a onclick="setProfile(' + id + ');">' + escapeHTML(name) + '</a>';
+				document.getElementById('profileList').appendChild(li);
+				profiles.increment++;
+				localStorage.setItem('profiles', JSON.stringify(profiles));
+				if(data.boosters)
+					localStorage.setItem('boosters_' + id, JSON.stringify(data.boosters));
+				if(data.candyProperties)
+					localStorage.setItem('candyProperties_' + id, JSON.stringify(data.candyProperties));
+				if(data.currentUser)
+					localStorage.setItem('currentUser_' + id, JSON.stringify(data.currentUser));
+				if(data.userUniverse)
+					localStorage.setItem('userUniverse_' + id, JSON.stringify(data.userUniverse));
+				if(data.wheelData)
+					localStorage.setItem('wheelData_' + id, JSON.stringify(data.wheelData));
+			}
+			
+			function exportProfile() {
+				var profiles = JSON.parse(localStorage.getItem('profiles'));
+				var pf = profiles.profiles.find(item => item.id == getProfile());
+				if(!pf) return alert('Profile not found');
+				var a, b, c, d, e;
+				a = localStorage.getItem('boosters_' + pf.id);
+				b = localStorage.getItem('candyProperties_' + pf.id);
+				c = localStorage.getItem('currentUser_' + pf.id);
+				d = localStorage.getItem('userUniverse_' + pf.id);
+				e = localStorage.getItem('wheelData_' + pf.id);
+				var exp = { name: pf.name };
+				if(a) exp.boosters = a;
+				if(b) exp.candyProperties = b;
+				if(c) exp.currentUser = c;
+				if(d) exp.userUniverse = d;
+				if(e) exp.wheelData = e;
+				prompt('Copy the exported data', JSON.stringify(exp));
 			}
 			
 			function setProfile(id) {
@@ -307,13 +382,34 @@
 					golds.amount += gold;
 					if(golds.amount < 0) golds.amount = 0;
 					localStorage.setItem('boosters_' + getProfile(), JSON.stringify(boosters)); 
+					var user = localStorage.getItem('currentUser_' + getProfile()); 
+					var d = JSON.parse(user); 
+					d.gold = golds.amount; 
+					localStorage.setItem('currentUser_' + getProfile(), JSON.stringify(d)); 
 					history.go(0);
 				}
+			}
+			
+			function toggleCard(el) {
+				if(el.nextElementSibling.style.display == 'none') {
+					el.nextElementSibling.style.display = 'block';
+					localStorage.setItem('card_' + el.getAttribute('id'), '1');
+				} else {
+					el.nextElementSibling.style.display = 'none';
+					localStorage.setItem('card_' + el.getAttribute('id'), '0');
+				}
+			}
+			
+			function initCards() {
+				document.querySelectorAll('dt[id]').forEach(el => {
+					if(localStorage.getItem('card_' + el.getAttribute('id')) == '0')
+						el.nextElementSibling.style.display = 'none';
+				});
 			}
 		</script>
 		
 		<style>
-			body { background: rgb(220, 235, 253); } td { vertical-align: top; padding-right: 20px; } dl dt { font-weight: bold; border-radius: 5px 5px 0 0; padding: 4px 6px 2px 6px; color: navy; background: linear-gradient(to right, rgb(194, 218, 248), rgb(103, 145, 224)); font-size: 11pt; } dl dd { border: 1px solid white; padding: 4px 8px 4px 8px; background-color: rgb(221, 236, 254); margin: 0; } dl dd li { margin-left: 20px; } dl dd li a { color: rgb(0, 61, 178); cursor: pointer; text-decoration: none; font-size: 9pt; }
+			body { font-family: Tahoma; background: rgb(220, 235, 253); } td { vertical-align: top; padding-right: 20px; } dl dt { cursor: pointer; font-weight: bold; border-radius: 5px 5px 0 0; padding: 4px 6px 2px 6px; color: rgb(0, 45, 134); background: linear-gradient(to right, rgb(194, 218, 248), rgb(103, 145, 224)); font-size: 11pt; } dl dd { width: 180px; border: 1px solid white; padding: 4px 8px 4px 8px; background-color: rgb(221, 236, 254); margin: 0; } dl dd li { margin-left: 20px; } dl dd li a { color: rgb(0, 61, 178); cursor: pointer; text-decoration: none; font-size: 8pt; } dl dd li a:hover { text-decoration: underline; }
 		</style>
 	</head>
 
@@ -328,34 +424,38 @@
 				
 				<td>
 					<dl>
-						<dt>Profiles</dt>
+						<dt onclick="toggleCard(this);" id=profilesCard>Switch Profiles</dt>
 						<dd id=profileList>
-							<li><a onclick="newProfile();">(Create new profile...)</a></li>
-							<li><a onclick="deleteProfile();">(Delete profile...)</a></li>
+							<li><a onclick="newProfile();">Create new profile...</a></li>
+							<li><a onclick="deleteProfile();">Delete profile...</a></li>
+							<li><a onclick="renameProfile();">Rename current profile...</a></li>
+							<li><a onclick="importProfile();">Import profile...</a></li>
+							<li><a onclick="exportProfile();">Export current profile...</a></li>
+							<br />
 						</dd>
 					</dl>
 					
 					<dl>
-						<dt>Game Tasks</dt>
+						<dt onclick="toggleCard(this);" id=tasksCard>Game Tasks</dt>
 						<dd>
 							<li><a onclick="unlockLevels();">Unlock levels</a></li>
-							<li><a onclick="chargeHearts();">Charge hearts</a></li>
-							<li><a onclick="extendHearts();">Extend hearts</a></li>
+							<li><a onclick="chargeHearts();">Charge lives</a></li>
+							<li><a onclick="extendHearts();">Extend lives</a></li>
 							<li><a onclick="addBooster();">Add boosters</a></li>
 							<li><a onclick="addGold();">Add gold bars</a></li>
-							<li><a href="swf/CCEditor.html">Level editor</a></li>
+							<li><a target=_blank href="swf/CCEditor.html">Level editor</a></li>
 						</dd>
 					</dl>
 					
 					<dl>
-						<dt>Other Languages</dt>
+						<dt onclick="toggleCard(this);" id=langCard>Other Languages</dt>
 						<dd>
 							<li><a href="index_kor.html">Korean</a></li>
 						</dd>
 					</dl>
 					
 					<dl>
-						<dt>Other Versions</dt>
+						<dt onclick="toggleCard(this);" id=versionCard>Other Versions</dt>
 						<dd>
 							<li><a href="2011/index.html">Candy Crush</a></li>
 							<li><a href="2012/index.html">Candy Crush Saga 2012</a></li>
@@ -366,6 +466,6 @@
 			</tr>
 		</table>
 		
-		<script>loadProfiles();</script>
+		<script>loadProfiles(); initCards();</script>
 	</body>
 </html>
