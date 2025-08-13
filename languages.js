@@ -126,7 +126,7 @@ window.languages = {
 	},
 	ja: {
 		display: '日本語',
-		font: 'DefaultFonts',
+		font: 'JapaneseFonts',
 		pageFont: 'undefined',
 		pageFontSize: '9',
 		language: 'ja',
