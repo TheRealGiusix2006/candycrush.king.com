@@ -118,26 +118,20 @@ function newProfile() {
 }
 
 function deleteProfile() {
-	var name = prompt(getString('ENTER_PROFILE_NAME'));
-	if(!name) return;
 	var profiles = JSON.parse(localStorage.getItem('profiles'));
-	var pfidx = profiles.profiles.findIndex(item => item.name == name);
+	var pfidx = profiles.profiles.findIndex(item => item.id == getProfile());
 	if(pfidx < 0) return;
 	var id = profiles.profiles[pfidx].id;
 	profiles.profiles.splice(pfidx, 1);
 	document.querySelector('li[data-id="' + id + '"]').remove();
-	var flag = false;
-	if(localStorage.getItem('selectedProfile') == id) {
-		localStorage.setItem('selectedProfile', '1');
-		flag = true;
-	}
+	localStorage.setItem('selectedProfile', '1');
 	localStorage.setItem('profiles', JSON.stringify(profiles));
 	localStorage.removeItem('boosters_' + id);
 	localStorage.removeItem('candyProperties_' + id);
 	localStorage.removeItem('currentUser_' + id);
 	localStorage.removeItem('userUniverse_' + id);
 	localStorage.removeItem('wheelData_' + id);
-	if(flag) history.go(0);
+	history.go(0);
 }
 
 function renameProfile() {
