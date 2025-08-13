@@ -39,6 +39,7 @@ window.languages = {
 			LEVEL_EDITOR: 'Level editor',
 			SELECT_LANGUAGE: 'Select Language',
 			SELECT_VERSION: 'Select Version',
+			DELETE_PROFILE_CONFIRM: 'Delete current profile? You will lose all your progress.',
 		}
 	},
 	ko: {
@@ -81,6 +82,7 @@ window.languages = {
 			LEVEL_EDITOR: '레벨 편집기',
 			SELECT_LANGUAGE: '언어 선택',
 			SELECT_VERSION: '버전 선택',
+			DELETE_PROFILE_CONFIRM: '프로필을 삭제하시겠습니까? 게임 진행 상황이 삭제됩니다',
 		}
 	},
 	zh: {
@@ -122,6 +124,7 @@ window.languages = {
 			LEVEL_EDITOR: '关卡编辑器',
 			SELECT_LANGUAGE: '选择语言',
 			SELECT_VERSION: '选择版本',
+			DELETE_PROFILE_CONFIRM: '删除当前个人资料？您将丢失所有进度。',
 		}
 	},
 	ja: {
@@ -163,6 +166,7 @@ window.languages = {
 			LEVEL_EDITOR: 'レベルエディター',
 			SELECT_LANGUAGE: '言語を選択',
 			SELECT_VERSION: 'バージョンを選択',
+			DELETE_PROFILE_CONFIRM: '現在のプロフィールを削除しますか？これまでの進行状況はすべて失われます。',
 		}
 	},
 };

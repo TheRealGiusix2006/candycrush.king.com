@@ -118,6 +118,7 @@ function newProfile() {
 }
 
 function deleteProfile() {
+	if(!confirm(getString('DELETE_PROFILE_CONFIRM'))) return;
 	var profiles = JSON.parse(localStorage.getItem('profiles'));
 	var pfidx = profiles.profiles.findIndex(item => item.id == getProfile());
 	if(pfidx < 0) return;
