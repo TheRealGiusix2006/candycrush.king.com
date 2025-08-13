@@ -848,9 +848,8 @@ window.ExternalInterfaceRpc = {
 fetch('./resources/game-configuration.json').then(res => res.json().then(levels => {
     loadedLevels = {};
     for (let level of levels) {
-        if (!loadedLevels[level.episode]) {
+        if (!loadedLevels[level.episode])
             loadedLevels[level.episode] = {};
-        }
         loadedLevels[level.episode][level.level] = level;
     }
 })).catch(e => {
