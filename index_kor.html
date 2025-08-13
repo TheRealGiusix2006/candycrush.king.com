@@ -323,11 +323,11 @@
 				d = localStorage.getItem('userUniverse_' + pf.id);
 				e = localStorage.getItem('wheelData_' + pf.id);
 				var exp = { name: pf.name };
-				if(a) exp.boosters = a;
-				if(b) exp.candyProperties = b;
-				if(c) exp.currentUser = c;
-				if(d) exp.userUniverse = d;
-				if(e) exp.wheelData = e;
+				if(a) exp.boosters = JSON.parse(a);
+				if(b) exp.candyProperties = JSON.parse(b);
+				if(c) exp.currentUser = JSON.parse(c);
+				if(d) exp.userUniverse = JSON.parse(d);
+				if(e) exp.wheelData = JSON.parse(e);
 				prompt('내보낸 프로필 데이타를 복사하십시오', JSON.stringify(exp));
 			}
 			
