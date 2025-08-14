@@ -172,7 +172,9 @@ window.languages = {
 };
 
 function getLanguage() {
-	return localStorage.getItem('language') || navigator.language?.split('-')[0] || 'en';
+	var ret = localStorage.getItem('language') || navigator.language?.split('-')[0] || 'en';
+	if(!window.languages[ret]) ret = 'en';
+	return ret;
 }
 
 function getString(key) {
