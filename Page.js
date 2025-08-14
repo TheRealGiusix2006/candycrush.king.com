@@ -286,3 +286,9 @@ function initCards() {
 			el.nextElementSibling.style.display = 'none';
 	});
 }
+
+function resetWheel() {
+	if(!confirm(getString('RESET_WHEEL_CONFIRM'))) return;
+	localStorage.removeItem('wheelData_' + getProfile());
+	history.go(0);
+}

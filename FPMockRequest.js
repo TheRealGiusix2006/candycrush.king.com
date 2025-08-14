@@ -208,13 +208,12 @@ function calcLives(data) {
 }
 
 // I cba to check if it's the **NEXT** day, I'll just check if it's a DIFFERENT day than before.
-window.isWheelActive = function() {
-    let data = get('wheelData_' + currentProfile)
-    if (!data) {
-        return true
-    }
-    let currentDate = new Date()
-    return (data.lastDay != currentDate.getDate() || data.lastMonth != currentDate.getMonth() || data.lastYear != currentDate.getFullYear())
+window.isWheelActive = function isWheelActive() {
+    let data = get('wheelData_' + currentProfile);
+    if (!data)
+        return true;
+    let currentDate = new Date();
+    return (data.lastDay != currentDate.getDate() || data.lastMonth != currentDate.getMonth() || data.lastYear != currentDate.getFullYear());
 }
 
 let wheelPrizes = [
