@@ -854,12 +854,12 @@ fetch('./resources/game-configuration.json').then(res => res.json().then(levels 
     }
 })).catch(e => {
 	alert(lang == 'ko' ? '레벨 데이타를 불러오지 못했습니다' : 'Failed to load levels'); 
-	history.go(0);
+	//history.go(0);
 });
 
 fetch('./candycrushapi/getGameModePerLevel').then(res => res.json().then(json => {
     gameModesPerLevel = json;
 })).catch(e => {
 	alert(lang == 'ko' ? '레벨 데이타를 불러오지 못했습니다' : 'Failed to load level data!');
-	history.go(0);
+	//history.go(0);
 });
