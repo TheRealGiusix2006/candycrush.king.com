@@ -1,49 +1,6 @@
 var enTexts = "{\"preloader_loading_part1_message\":\"Adding frosting\",\"preloader_loading_part2_message\":\"Mixing ingredients\",\"preloader_loading_part3_message\":\"Measuring sugar\",\"preloader_loading_part4_message\":\"Heating oven\",\"preloader_loading_part5_message\":\"Sampling candy mix\",\"preloader_loading_part6_message\":\"Polishing\",\"preloader_loading_header\":\"Making candy\",\"preloader_loading_complete_header\":\"Candy complete!\",\"preloader_tips_header\":\"Did you know?\",\"preloader_tips_cake\":\"Destroy a Cake Bomb for a divine explosion!\",\"preloader_tips_chameleon\":\"The Chameleon Candy is sneaky. It changes candy color with each turn.\",\"preloader_tips_chocolate\":\"Chocolate multiplying is only a nightmare in Candy Crush!\",\"preloader_tips_colorbomb\":\"Try matching each type of candy with a Color bomb for sweet combos.\",\"preloader_tips_dreamworld\":\"Access Dreamworld by completing Level 50!\",\"preloader_tips_dreamworld_2\":\"Go far in Reality to access even more levels in Dreamworld.\",\"preloader_tips_dreamworld_3\":\"Tiffi's slumbers unlock a whole new Dreamworld of fun! \",\"preloader_tips_dreamworld_4\":\"In Dreamworld, don't let Odus tip over! It ruffles his feathers. \",\"preloader_tips_fish\":\"Swedish Fish eat any candy but jelly is its favorite.\",\"preloader_tips_fish_2\":\"Tiffi eats 500 Swedish Fish a day because it?s good for her joints. \",\"preloader_tips_fish_3\":\"Swedish Fish can eat any candy, but difficult candies are their favorite.\",\"preloader_tips_friends\":\"Unlocking new episodes is faster when you play with friends.\",\"preloader_tips_friends_2\":\"Friends can help you pass blocks, get more lives and encourage your progress.\",\"preloader_tips_hammer\":\"Lollipop Hammers will smash any item on the board that gives you a hard time.\",\"preloader_tips_icing\":\"Icing can come in many layers. Be prepared for deliciousness!\",\"preloader_tips_lucky\":\"Match Lucky Candies to reveal exactly the candy you need!\",\"preloader_tips_marmelade\":\"Marmalade covers candies. It's easy to remove but you might get sticky!\",\"preloader_tips_minty\":\"When Minty eats too much candy, his take-off is a bit slow.\",\"preloader_tips_mystery\":\"Mystery candy can be good or bad, but it is always fun to find out.\",\"preloader_tips_odus\":\"Odus carries Tiffi off to Dreamworld whenever she falls asleep!\",\"preloader_tips_pepperbomb\":\"Remove Candy Bombs before they hit 0!\",\"preloader_tips_soda\":\"Tiffi regularly sends home messages-in-a-bottle to recount her adventures.\",\"preloader_tips_soda_2\":\"The Candy Kingdom is one of the vastest lands known to man.\",\"preloader_tips_soda_3\":\"A giant Candy Factory has produced every piece of candy in the Candy Kingdom!\",\"preloader_tips_spawner\":\"Chocolate Spawners create Chocolate out of thin air! Where can I buy one?\",\"preloader_tips_striped\":\"Striped Candy clears a whole line of candies when matched. \",\"preloader_tips_striped_2\":\"Match a Striped Candy and a Color Bomb and get a lot of striped candies.\",\"preloader_tips_striped_3\":\"The direction of the stripes on a striped candy shows which direction it will go.\",\"preloader_tips_striped_4\":\"Form a Striped Candy by matching 4 candies in a row.\",\"preloader_tips_switch\":\"Free Switch can swap two candies that don't match!\",\"preloader_tips_teeth\":\"Sweet Teeth's favorite candies are chocolate, licorice and jelly.\",\"preloader_tips_time\":\"Look for extra time candies to maximize your play in timed levels.\",\"preloader_tips_toffee\":\"Mr. Toffee adopted Tiffi and Kimmy\",\"preloader_tips_toffee_2\":\"Mr. Toffee's favorite candy is actually jelly, not toffee!\",\"preloader_tips_troll\":\"The Bubblegum Troll can halt the Chocolate Spawners for 5 moves!\",\"preloader_tips_troll_2\":\"The Bubblegum Troll knows everything about the Candy Kingdom.\",\"preloader_tips_troll_3\":\"The Bubblegum Troll is mischievous, be ready for anything!\",\"preloader_tips_wrapped\":\"Wrapped candy blow up surrounding candies with a sugary blast!\",\"preloader_tips_wrapped_2\":\"Match 2 wrapped candies to create a 5X5 candy blast!\",\"preloader_tips_wrapped_3\":\"Wrapped Candy creates a delicious explosion when activated.\",\"preloader_tips_yeti\":\"The Yeti bathes in a big bath of soda, five times a day.\",\"preloader_error_message\":\"An error occurred while loading\"}";
 
 window.languages = {
-	it: {
-		display: 'Italian',
-		font: 'DefaultFonts',
-		pageFont: 'Tahoma',
-		pageFontSize: '8',
-		language: 'it',
-		locale: 'it',
-		title: 'Candy Crush Saga',
-		ui: {
-			UNLOCK_LEVEL_PROMPT: 'Unlock levels until what level? (2825) This action is irreversible.',
-			CHARGE_LIVES_PROMPT: 'Charge all the hearts?',
-			EXTEND_LIVES_PROMPT: 'Enter the maximum number of hearts.',
-			ENTER_PROFILE_NAME: 'Enter the name of the profile',
-			NAME_ALREADY_EXISTS: 'That name already exists.',
-			NEW_NAME_PROMPT: 'Enter the new name',
-			PROFILE_DATA_PROMPT: 'Enter profile data',
-			INVALID_DATA: 'Invalid data',
-			IMPORT_ALREADY_EXISTS: 'That name already exists. Enter a new name or leave it blank to overwrite',
-			PROFILE_NOT_FOUND: 'Profile not found',
-			COPY_PROFILE_DATA: 'Copy the exported data',
-			BOOSTER_LIST: 'Enter the booster you want in number: \n1. UFO\n2. Stripe brush\n3. Bubblegum troll\n4. Sweet teeth\n5. Joker\n6. Striped and wrapped candies\n7. Anti peppar\n8. Free switch\n9. Coconut wheel\n10. Jelly fish\n11. Lollipop hammer\n12. Extra moves\n13. Color bomb\n14. Extra time',
-			BOOSTER_AMOUNT_PROMPT: 'How many do you want? (Enter negative to remove)',
-			GOLDBAR_AMOUNT_PROMPT: 'Enter the number of gold bars to add to your bank (Enter negative to decrease them)',
-			SWITCH_PROFILES: 'Switch Profiles',
-			MANAGE_PROFILES: 'Manage Profiles',
-			NEW_PROFILE: 'Create new profile',
-			DELETE_PROFILE: 'Delete current profile',
-			RENAME_PROFILE: 'Rename current profile',
-			IMPORT_PROFILE: 'Import profile',
-			EXPORT_PROFILE: 'Export current profile',
-			GAME_TOOLS: 'Game Tools',
-			UNLOCK_LEVELS: 'Unlock levels',
-			CHARGE_LIVES: 'Charge lives',
-			EXTEND_LIVES: 'Extend lives',
-			ADD_BOOSTERS: 'Add boosters',
-			ADD_GOLDBARS: 'Add gold bars',
-			LEVEL_EDITOR: 'Level editor',
-			SELECT_LANGUAGE: 'Select Language',
-			SELECT_VERSION: 'Select Version',
-			DELETE_PROFILE_CONFIRM: 'Delete current profile? You will lose all your progress.',
-			RESET_WHEEL: 'Reset roulette time',
-			RESET_WHEEL_CONFIRM: 'Are you sure you want to reset the roulette so you can spin it again now?',
-		},
 	en: {
 		display: 'English',
 		font: 'DefaultFonts',
@@ -371,5 +328,3 @@ window.lang = getLanguage();
 document.title = window.languages[getLanguage()]?.title || 'Candy Crush Saga';
 window.gameInitStrings = window.gameInitStringsList[window.lang];
 generateTexts(window.lang);
-
-
