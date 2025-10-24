@@ -71,7 +71,7 @@ function showGame() {
 		"sugarTrackAvailable": false,
 		"candyKitchenAvailable": true,
 		"redoGetBalanceKillswitch": false,
-		"debugMode": true,
+		"debugMode": false, // to avoid game lagging
 		"logUncaughtClientErrors": true,
 		"texts": lang.texts,
 		"currentServerTime": Math.round(new Date().getTime() / 1000),
