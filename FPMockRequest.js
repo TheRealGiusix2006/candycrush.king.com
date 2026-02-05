@@ -719,8 +719,8 @@ function gameInitLight() {
                 "lastOnlineTime": 1736338198000,
                 "fullName": "You",
                 "name": "You",
-                "pic": "http://localhost/odus100x100.png",
-                "picSquare": "http://localhost/odus100x100.png",
+                "pic": "https://0.0.0.0/odus100x100.png",
+                "picSquare": "https://0.0.0.0/odus100x100.png",
                 "countryCode": "CA",
                 "topEpisode": 189,
                 "topLevel": 2825,
@@ -769,10 +769,10 @@ window.MockRequest = function (url, params) {
     let result = {}
     try {
         switch (url) {
-            case "http://localhost/api/gameInitLight": {
+            case "https://0.0.0.0/api/gameInitLight": {
                 result = gameInitLight()
                 break;
-            } case "http://localhost/api/handOutItemWinnings": {
+            } case "https://0.0.0.0/api/handOutItemWinnings": {
                 //console.log('adding this')
                 let boostersAdd = JSON.parse(decoded['arg0'])
                 //console.log(boostersAdd)
@@ -780,7 +780,7 @@ window.MockRequest = function (url, params) {
                 result = getBalance()
                 break
             }
-            case "http://localhost/api/useItemsInGame": {
+            case "https://0.0.0.0/api/useItemsInGame": {
                 //console.log('adding this')
                 let boostersAdd = JSON.parse(decoded['arg0'])
                 //console.log(boostersAdd)
@@ -788,35 +788,35 @@ window.MockRequest = function (url, params) {
                 result = getBalance()
                 break
             }
-            case "http://localhost/api/gameStart2": {
+            case "https://0.0.0.0/api/gameStart2": {
                 result = gameStart(decoded['arg0'], decoded['arg1'])
                 break
             }
-            case "http://localhost/api/getLevelToplist": {
+            case "https://0.0.0.0/api/getLevelToplist": {
                 result = getToplist(decoded['arg0'], decoded['arg1'])
                 break;
             }
-            case "http://localhost/api/gameEnd3": {
+            case "https://0.0.0.0/api/gameEnd3": {
                 result = gameEnd(JSON.parse(decoded['arg0']))
                 break
             }
-            case "http://localhost/api/poll": {
+            case "https://0.0.0.0/api/poll": {
                 result = { currentUser: getCurrentUser() }
                 break;
             }
-            case "http://localhost/api/getMessages": {
+            case "https://0.0.0.0/api/getMessages": {
                 result = { events: [], currentUser: getCurrentUser() }
                 break;
             }
-            case "http://localhost/api/getBalance": {
+            case "https://0.0.0.0/api/getBalance": {
                 result = getBalance()
                 break;
             }
-            case "http://localhost/api/unlockItem": {
+            case "https://0.0.0.0/api/unlockItem": {
                 result = addBoosters([{ type: decoded['arg0'], amount: 0 }], true)
                 break
             }
-            case "http://localhost/candycrushapi/getWebFileUrl": {
+            case "https://0.0.0.0/candycrushapi/getWebFileUrl": {
                 let wfu = decoded['arg0']
                 switch (wfu) {
                     case "/s.json":
@@ -831,27 +831,27 @@ window.MockRequest = function (url, params) {
                 }
                 break
             }
-            case "http://localhost/candycrushapi/getGameModes": {
+            case "https://0.0.0.0/candycrushapi/getGameModes": {
                 result = ["Classic", "Classic moves", "Drop down", "Light up", "Order", "Frogger", "Jelly Drop down", "Jelly Order", "Order Drop", "Jelly Color", "Jelly Time"]
                 break
             }
-            case "http://localhost/candycrushapi/getGameModePerLevel": {
+            case "https://0.0.0.0/candycrushapi/getGameModePerLevel": {
                 result = gameModesPerLevel
                 break
             }
-            case "http://localhost/candycrushapi/getCandyProperties": {
+            case "https://0.0.0.0/candycrushapi/getCandyProperties": {
                 result = { candyProperties: getCandyProperties() }
                 break
             }
-            case "http://localhost/candycrushapi/getLevelAbTests": {
+            case "https://0.0.0.0/candycrushapi/getLevelAbTests": {
                 result = []
                 break
             }
-            case "http://localhost/candycrushapi/setCandyProperty": {
+            case "https://0.0.0.0/candycrushapi/setCandyProperty": {
                 setCandyProperty(decoded['arg0'], decoded['arg1'])
                 break
             }
-            case "http://localhost/candycrushapi/deliverInitialHardCurrencyGiftForIntroPop": {
+            case "https://0.0.0.0/candycrushapi/deliverInitialHardCurrencyGiftForIntroPop": {
                 let currentUser = get('currentUser')
                 setCandyProperty('introduceHardCurrency', 'true')
                 if (!currentUser.hasGottenInitialGift) {
@@ -860,17 +860,17 @@ window.MockRequest = function (url, params) {
                 }
                 set('currentUser', currentUser)
             }
-            case "http://localhost/candycrushapi/getWheelOfBoosterPrize": {
+            case "https://0.0.0.0/candycrushapi/getWheelOfBoosterPrize": {
                 result = getWheelPrize()
                 break
             }
-            case "http://localhost/api/setSoundFx": {
+            case "https://0.0.0.0/api/setSoundFx": {
                 let currentUser = get('currentUser')
                 currentUser.soundFx = JSON.parse(decoded['arg0'])
                 set('currentUser', currentUser)
                 break
             }
-            case "http://localhost/api/setSoundMusic": {
+            case "https://0.0.0.0/api/setSoundMusic": {
                 let currentUser = get('currentUser')
                 currentUser.soundMusic = JSON.parse(decoded['arg0'])
                 set('currentUser', currentUser)
